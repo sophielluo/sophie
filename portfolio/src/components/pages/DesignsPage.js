@@ -1,20 +1,56 @@
 import React from 'react';
 
 const Designs = () => {
+  const designs = [
+    {
+      id: 1,
+      title: "Website Redesign",
+      description: "Complete overhaul of an e-commerce platform focusing on improved user experience and conversion rates.",
+      tags: ["Web Design", "UI/UX", "E-commerce"]
+    },
+    {
+      id: 2,
+      title: "Mobile App Interface",
+      description: "Design system and UI components for a fitness tracking application.",
+      tags: ["Mobile", "App Design", "UI Components"]
+    },
+    {
+      id: 3,
+      title: "Brand Identity",
+      description: "Complete brand package including logo, color palette, typography, and brand guidelines.",
+      tags: ["Branding", "Logo Design", "Guidelines"]
+    },
+    {
+      id: 4,
+      title: "Dashboard UI",
+      description: "Analytics dashboard design with data visualization components and user-friendly controls.",
+      tags: ["Dashboard", "Data Viz", "Web App"]
+    }
+  ];
+
   return (
-    <div className="p-6 bg-green-50 rounded-lg">
-      <div className="grid grid-cols-2 gap-4">
-        {[1, 2, 3, 4].map((item) => (
-          <div key={item} className="p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            <div className="bg-green-200 w-full h-32 rounded-md mb-2 flex items-center justify-center">
-              <span className="text-3xl">🎨</span>
+    <section className="designs-section">
+      <h2>Design Work</h2>
+      <p>A collection of my recent design projects spanning web, mobile, and branding.</p>
+      <div className="portfolio-grid">
+        {designs.map(design => (
+          <div key={design.id} className="portfolio-item">
+            <div className="portfolio-item-image">
+              <div className="image-placeholder"></div>
             </div>
-            <h3 className="font-medium">Design Project {item}</h3>
-            <p className="text-sm text-gray-600">A delightful design with personality</p>
+            <div className="portfolio-item-content">
+              <h3>{design.title}</h3>
+              <p>{design.description}</p>
+              <div className="portfolio-tags">
+                {design.tags.map((tag, index) => (
+                  <span key={index} className="portfolio-tag">{tag}</span>
+                ))}
+              </div>
+            </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

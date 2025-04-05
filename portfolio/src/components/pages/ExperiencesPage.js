@@ -1,26 +1,43 @@
 import React from 'react';
 
 const Experiences = () => {
+  const experiences = [
+    {
+      id: 1,
+      period: "2021 - Present",
+      role: "Senior UX Designer",
+      company: "Creative Studio",
+      description: "Leading design projects for various clients, focusing on user experience and interface design. Collaborate with development teams to ensure design implementation meets specifications."
+    },
+    {
+      id: 2,
+      period: "2018 - 2021",
+      role: "UI Designer",
+      company: "Digital Agency",
+      description: "Created responsive layouts and interactive prototypes for web and mobile applications. Conducted user research and integrated feedback into design iterations."
+    },
+    {
+      id: 3,
+      period: "2015 - 2018",
+      role: "Graphic Designer",
+      company: "Design Studio",
+      description: "Developed brand identities, marketing materials, and digital assets for clients across various industries. Participated in client presentations and feedback sessions."
+    }
+  ];
+
   return (
-    <div className="p-6 bg-blue-50 rounded-lg">
-      <div className="space-y-6">
-        <div className="border-l-4 border-blue-300 pl-4">
-          <h3 className="text-xl font-bold text-blue-600">Creative Developer</h3>
-          <p className="text-sm text-gray-500">2022 - Present</p>
-          <p className="mt-2">Building beautiful, functional websites that delight users and solve real problems.</p>
-        </div>
-        <div className="border-l-4 border-blue-300 pl-4">
-          <h3 className="text-xl font-bold text-blue-600">UI/UX Designer</h3>
-          <p className="text-sm text-gray-500">2020 - 2022</p>
-          <p className="mt-2">Crafted user interfaces that tell stories and create meaningful experiences.</p>
-        </div>
-        <div className="border-l-4 border-blue-300 pl-4">
-          <h3 className="text-xl font-bold text-blue-600">Freelance Artist</h3>
-          <p className="text-sm text-gray-500">2018 - 2020</p>
-          <p className="mt-2">Created custom artwork for clients across various industries.</p>
-        </div>
+    <section className="experience-section">
+      <h2>Work Experience</h2>
+      <div className="timeline">
+        {experiences.map(exp => (
+          <div key={exp.id} className="timeline-item">
+            <div className="timeline-date">{exp.period}</div>
+            <h3 className="timeline-title">{exp.role} at {exp.company}</h3>
+            <p>{exp.description}</p>
+          </div>
+        ))}
       </div>
-    </div>
+    </section>
   );
 };
 
