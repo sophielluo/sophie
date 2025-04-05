@@ -59,6 +59,7 @@ body {
   gap: 0.25rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  list-style: none; /* Add this line to remove bullets */
 }
 
 .nav-button {
@@ -68,6 +69,15 @@ body {
   font-weight: 500;
   white-space: nowrap;
   transition: background-color 0.2s, color 0.2s;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.nav-button:focus {
+  outline: none;
 }
 
 .nav-button-active {
@@ -125,6 +135,14 @@ body {
   background-color: #fef3c7;
   border-radius: 9999px;
   transition: background-color 0.2s;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.footer-button:focus {
+  outline: none;
 }
 
 .footer-button:hover {

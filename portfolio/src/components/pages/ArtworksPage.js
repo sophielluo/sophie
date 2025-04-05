@@ -6,11 +6,11 @@ const Artworks = () => {
       <div className="artworks-grid">
         {[1, 2, 3, 4, 5, 6].map((item) => (
           <div key={item} className="artwork-item">
-            <span className="text-3xl">🖌️</span>
+            <span className="emoji">🖌️</span>
           </div>
         ))}
       </div>
-      <p className="mt-4 text-center text-gray-600 italic">Each piece tells a unique story...</p>
+      <p className="artwork-caption">Each piece tells a unique story...</p>
     </div>
   );
 };
