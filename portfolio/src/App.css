@@ -572,3 +572,58 @@ footer {
     border-top: 1px solid var(--light-gray);
   }
 }
+
+.about-section {
+  margin: 2rem;
+}
+
+.about-container {
+  display: flex;                
+  justify-content: space-between; 
+  gap: 2rem;                   /* Add gap between content and image */
+  align-items: flex-start;      
+  margin-top: 2rem;             /* Add some space after the heading */
+}
+
+.about-content {
+  flex: 1;                     /* Take up available space */
+  max-width: 60%;              /* Limit the width */
+}
+
+.about-image {
+  flex: 0 0 300px;            /* Fixed width for the image container */
+}
+
+.about-me-picture {
+  width: 100%;                /* Make image responsive */
+  height: auto;               /* Maintain aspect ratio */
+  border-radius: 8px;         /* Optional: rounded corners */
+  object-fit: cover;          /* Ensure image covers the container */
+}
+
+.stats-container {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-content: space-between; /* Evenly distribute items */
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  flex: 1;              /* Each item takes equal width */
+  max-width: 180px;     /* Optional: set a maximum width */
+  text-align: left;   /* Center the text for better appearance */
+  align-items: left;  /* Center the content vertically */
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary);
+  font-family: 'Times New Roman Condensed', serif;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+}
