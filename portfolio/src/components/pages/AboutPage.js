@@ -8,8 +8,8 @@ const About = () => {
       <div className="about-container">
         <div className="about-content">
           <div className="about-text">
-            <p>Most people don't know this, but I grew up wanting to be a singer. A fun fact: I have achieved over 200K streams across various platforms for my original songs and covers! Striving to expand my repertoire of songs without a Spotify membership in the earlier days, I looked for creative ways to mimic my favorite artists. This is how I discovered the ability to extract music files from web pages in developer mode.</p>
-            <p>This debatably unethical hack ignited my early passions for problem-solving and coding, eventually leading me to pursue a computing degree. To most, it may seem like I'm just riding the wave of computer science, but for me, coding is a life skill - a powerful tool for solving problems. I enjoy identifying challenges, dissecting them, and crafting innovative solutions using my technical skills - the very passion that draws me to dynamic ecosystems in various places.</p>
+            <p>Most people don't know this, but I grew up wanting to be a singer. A fun fact: I have achieved over 200K streams across various music platforms! While trying to expand my music library without Spotify Premium, I discovered how to extract music files using developer mode—my first coding "hack."</p>
+            <p>This debatably unethical hack ignited my early passions for problem-solving. For me, coding isn't just a trendy career path—it's a powerful tool for tackling challenges. I thrive on identifying problems and crafting innovative solutions, which is why I'm drawn to dynamic tech ecosystems.</p>
             <div className="stats-container">
               <div className="stat-item">
                 <span className="stat-number">5+</span>
