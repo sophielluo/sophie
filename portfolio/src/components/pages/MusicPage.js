@@ -1,27 +1,57 @@
 import React from 'react';
 
 const Music = () => {
+  const tracks = [
+    {
+      id: 1,
+      title: "Ambient Dreams",
+      description: "Electronic ambient composition with layered synthesizers and atmospheric textures",
+      tags: ["Electronic", "Ambient", "Synthesizer"],
+      duration: "4:35"
+    },
+    {
+      id: 2,
+      title: "Urban Rhythm",
+      description: "Hip-hop instrumental beats featuring dynamic percussion and melodic samples",
+      tags: ["Hip-hop", "Beats", "Instrumental"],
+      duration: "3:45"
+    },
+    {
+      id: 3,
+      title: "Acoustic Sessions",
+      description: "Live acoustic recordings capturing raw, intimate performances",
+      tags: ["Acoustic", "Live", "Unplugged"],
+      duration: "5:20"
+    }
+  ];
+
   return (
-    <div className="p-6 bg-red-50 rounded-lg">
-      <div className="space-y-4">
-        {[1, 2, 3].map((item) => (
-          <div key={item} className="bg-white p-4 rounded-lg shadow-sm">
-            <div className="flex items-center gap-3">
-              <div className="bg-red-200 w-12 h-12 rounded-full flex items-center justify-center text-xl">
-                🎵
-              </div>
-              <div>
-                <h3 className="font-medium">Track #{item}</h3>
-                <p className="text-sm text-gray-600">A melodic journey through sound</p>
+    <section className="music-section">
+      <h2>Music Projects</h2>
+      <p className="section-description">A collection of my musical compositions and productions.</p>
+      <div className="music-tracks-container">
+        {tracks.map(track => (
+          <div key={track.id} className="music-track-item">
+            <div className="track-main-content">
+              <div className="track-icon">🎵</div>
+              <div className="track-info">
+                <h3>{track.title}</h3>
+                <p>{track.description}</p>
+                <div className="track-tags">
+                  {track.tags.map((tag, index) => (
+                    <span key={index} className="portfolio-tag">{tag}</span>
+                  ))}
+                </div>
               </div>
             </div>
-            <div className="mt-3 bg-gray-200 h-2 rounded-full overflow-hidden">
-              <div className="bg-red-400 h-full rounded-full" style={{ width: `${30 * item}%` }}></div>
+            <div className="track-controls">
+              <span className="track-duration">{track.duration}</span>
+              <button className="play-button">▶️</button>
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

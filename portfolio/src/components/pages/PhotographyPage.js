@@ -1,19 +1,54 @@
 import React from 'react';
 
 const Photography = () => {
+  const photos = [
+    {
+      id: 1,
+      title: "Nature's Beauty",
+      year: 2023,
+      description: "Captured in the wild"
+    },
+    {
+      id: 2,
+      title: "Urban Life",
+      year: 2022,
+      description: "City landscapes"
+    },
+    {
+      id: 3,
+      title: "Portrait Series",
+      year: 2023,
+      description: "Human expressions"
+    },
+    {
+      id: 4,
+      title: "Abstract Views",
+      year: 2022,
+      description: "Experimental photography"
+    }
+  ];
+
   return (
-    <div className="p-6 bg-indigo-50 rounded-lg">
-      <div className="columns-2 gap-3 space-y-3">
-        {[1, 2, 3, 4].map((item) => (
-          <div key={item} className="break-inside-avoid">
-            <div className="bg-indigo-200 rounded-md aspect-video flex items-center justify-center">
-              <span className="text-3xl">📷</span>
+    <section className="photography-section">
+      <h2>Photography Portfolio</h2>
+      <p>A collection of moments captured through my lens.</p>
+      <div className="portfolio-grid">
+        {photos.map(photo => (
+          <div key={photo.id} className="portfolio-item">
+            <div className="portfolio-item-image">
+              <div className="image-placeholder">📷</div>
             </div>
-            <p className="text-sm text-gray-600 mt-1">Captured in the wild, {2023 - item}</p>
+            <div className="portfolio-item-content">
+              <h3>{photo.title}</h3>
+              <p>{photo.description}</p>
+              <div className="portfolio-tags">
+                <span className="portfolio-tag">{photo.year}</span>
+              </div>
+            </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

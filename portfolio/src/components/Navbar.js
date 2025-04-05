@@ -1,5 +1,6 @@
 // src/components/Navbar.js
 import React from 'react';
+import logo from '../images/logo.png';
 // import '../styles/Navbar.css';
 
 const Navbar = ({ currentPage, setCurrentPage }) => {
@@ -15,7 +16,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
   return (
     <header>
       <div className="logo">
-        <h1>Portfolio</h1>
+        <img src={logo} alt="Portfolio Logo" className="logo-image" />
         <div className="star-decoration"></div>
       </div>
       <nav>

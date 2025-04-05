@@ -1,5 +1,7 @@
 /* src/App.css */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Times New Roman Condensed:ital,wght@0,200..800;1,200..800&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 /* :root {
   --primary: #7d2e2e;
@@ -8,13 +10,19 @@
   --accent: #a25050;
   --light-gray: #e5e5e5;
 } */
+@font-face {
+  font-family: 'Times New Roman Condensed';
+  src: url('./fonts/Times New Roman MT Condensed Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root {
-  --primary: #fb4d00;
-  --secondary: #ffede3;
-  --text: #49261d;
-  --accent: #49261d;
-  --light-gray: #49261d;
+  --primary: #1e50a2;
+  --secondary: #fff2df;
+  --text: #1e50a2;
+  --accent: #fdca17;
+  --light-gray: #fdca17;
 }
 
 * {
@@ -24,7 +32,7 @@
 }
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Karla', sans-serif;
   background-color: var(--secondary);
   color: var(--text);
   line-height: 1.6;
@@ -50,11 +58,20 @@ header {
   position: relative;
 }
 
-.logo h1 {
-  font-family: 'Playfair Display', serif;
+/* .logo h1 {
+  font-family: 'Times New Roman Condensed', serif;
   color: var(--primary);
   font-size: 1.8rem;
   letter-spacing: 1px;
+  font-weight: 700;
+} */
+
+.logo-image {
+  height: 50px;
+  width: auto;
+  width: 150px; 
+  height: 50px; 
+  object-fit: contain;
 }
 
 .star-decoration {
@@ -78,7 +95,8 @@ nav ul {
 nav button {
   background: none;
   border: none;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Times New Roman Condensed', sans-serif;
+  font-weight: 1000;
   font-size: 1rem;
   color: var(--text);
   cursor: pointer;
@@ -118,11 +136,12 @@ main {
 }
 
 h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Times New Roman Condensed', serif;
   color: var(--primary);
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
   position: relative;
+  font-weight: 700;
 }
 
 h2::after {
@@ -192,7 +211,7 @@ p {
 }
 
 .portfolio-item h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Times New Roman Condensed', serif;
   color: var(--primary);
   margin-bottom: 0.5rem;
 }
@@ -210,6 +229,14 @@ p {
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   font-size: 0.8rem;
+}
+
+.company-logo {
+  width: 200px;
+  height: 50px;
+  object-fit: contain; /* This ensures the logo maintains its proportions */
+  margin-bottom: 1rem;
+  object-position: left;
 }
 
 /* Experience Timeline */
@@ -233,6 +260,7 @@ p {
   position: relative;
   margin-bottom: 2rem;
   padding-left: 1.5rem;
+  width: 100%;
 }
 
 .timeline-item::before {
@@ -253,8 +281,88 @@ p {
 }
 
 .timeline-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Times New Roman Condensed', serif;
   margin-bottom: 0.5rem;
+  font-weight: 1000;
+}
+
+.work-media {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: flex-start;
+  width: fit-content;  /* Container will only be as wide as its content */
+}
+
+.work-video,
+.work-image {
+  flex: 1;
+  width: 100%;
+  height: 200px;         /* Consistent height across all experiences */
+  border-radius: 8px;
+  object-fit: contain;   /* Changed to contain to prevent image distortion */
+  object-position: left;
+  background-color: #f5f5f5; /* Light background to show media boundaries */
+}
+
+/* Optional: if you want to ensure videos maintain aspect ratio */
+.work-video {
+  background-color: #fff2df;
+}
+
+.skill-logos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  align-items: center;
+  padding-bottom: 0.75rem;
+}
+
+.skill-logo-container {
+  width: 100px;
+  height: 200px;
+  border: 0px solid #000; /* Optional: adds a light border around the box */
+  display: flex;
+  align-items: left; /* Vertically center the logo */
+  padding-left: 20px; /* Add some padding from the left edge */
+}
+
+.skill-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.title-skills-container {
+  display: flex;
+  align-items: center;  /* Changed from center to baseline */
+  gap: 2rem;
+  margin-bottom: 1rem;   /* Add some space before the description */
+}
+
+.timeline-title {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.company-skill-logo {
+  height: 1.75rem;
+  width: auto;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+.project-images {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.project-images img {
+  max-width: 200px;
+  height: auto;
 }
 
 /* Footer Styles */
@@ -315,5 +423,152 @@ footer {
   
   .portfolio-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Photography and Music Section Styles */
+.photography-section,
+.music-section {
+  margin-bottom: 2rem;
+}
+
+.image-placeholder {
+  background-color: var(--secondary);
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.portfolio-item-image {
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* If you want different background colors for each section */
+.photography-section .image-placeholder {
+  background-color: #f0f7ff;  /* light blue tint */
+}
+
+.music-section .image-placeholder {
+  background-color: #fff0f0;  /* light red tint */
+}
+
+/* Music Section Styles */
+.music-section {
+  margin-bottom: 2rem;
+}
+
+.section-description {
+  margin-bottom: 2rem;
+  color: var(--text);
+  font-size: 1.1rem;
+}
+
+.music-tracks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.music-track-item {
+  background-color: white;
+  border: 1px solid var(--light-gray);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.music-track-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.track-main-content {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex: 1;
+}
+
+.track-icon {
+  background-color: var(--secondary);
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.track-info {
+  flex: 1;
+}
+
+.track-info h3 {
+  font-family: 'Karla', serif;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.track-info p {
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.track-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.track-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.track-duration {
+  color: var(--text);
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.play-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.play-button:hover {
+  background-color: var(--secondary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .music-track-item {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .track-controls {
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--light-gray);
   }
 }
