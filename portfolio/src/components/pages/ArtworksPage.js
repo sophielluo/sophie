@@ -2,10 +2,10 @@ import React from 'react';
 
 const Artworks = () => {
   return (
-    <div className="p-6 bg-purple-50 rounded-lg">
-      <div className="grid grid-cols-3 gap-3">
+    <div className="artworks-container">
+      <div className="artworks-grid">
         {[1, 2, 3, 4, 5, 6].map((item) => (
-          <div key={item} className="aspect-square bg-purple-200 rounded-md flex items-center justify-center hover:bg-purple-300 transition-colors">
+          <div key={item} className="artwork-item">
             <span className="text-3xl">🖌️</span>
           </div>
         ))}
