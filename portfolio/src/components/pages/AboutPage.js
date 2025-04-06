@@ -25,6 +25,7 @@ import artwork3 from '../../images/artworks/artwork-3.jpg';
 import artwork5 from '../../images/artworks/artwork-5.jpg';
 import artwork6 from '../../images/artworks/artwork-6.jpg';
 
+
 const About = ({ setCurrentPage }) => {
   // Sample banner artworks - replace with your actual images
   const travelImages = [
@@ -102,6 +103,7 @@ const About = ({ setCurrentPage }) => {
               <img
                 src={artwork.image}
                 alt={artwork.title || `Artwork ${index + 1}`}
+                loading="lazy"
                 className="floating-gallery-image"
               />
             </div>
@@ -146,6 +148,7 @@ const About = ({ setCurrentPage }) => {
               <img
                 src={image}
                 alt={`Polaroid ${index + 1}`}
+                loading="lazy"
                 className="polaroid-image"
               />
             </div>

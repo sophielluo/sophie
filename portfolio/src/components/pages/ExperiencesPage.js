@@ -68,7 +68,7 @@ const Experiences = () => {
       period: "Aug - Nov 2024, Singapore",
       role: "Software Engineer",
       company: "Shopback",
-      description: "At ShopBack, Asia-Pacific's leading shopping, rewards, and payments platform, I focus on enhancing code efficiency and maintainability, as well as automating internal processes to boost operational efficiency by 80%. I learned the importance of critically assessing established processes and the necessity of continual refinement to ensure they remain effective and relevant. Always game for new challenges, I embarked on a 3-month internship in Vietnam.",
+      description: "At ShopBack, Asia-Pacific's leading shopping, rewards, and payments platform, I focus on enhancing code efficiency and maintainability, as well as automating internal processes to boost operational efficiency by 90%. I learned the importance of critically assessing established processes and the necessity of continual refinement to ensure they remain effective and relevant. Always game for new challenges, I embarked on a 3-month internship in Vietnam.",
       companyLogo: shopbackLogo,
       workMedia: [
         { type: 'image', src: shopback1 },
