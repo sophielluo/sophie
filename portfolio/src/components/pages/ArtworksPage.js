@@ -1,39 +1,22 @@
 import React, { useState } from 'react';
 import FullScreenGallery from '../FullScreenGallery';
-
-// ARTWORKS
-import artwork8 from '../../images/artworks-small/artwork-8.jpg';
-import artwork11 from '../../images/artworks-small/artwork-11.jpg';
-import artwork12 from '../../images/artworks-small/artwork-12.jpg';
-import artwork13 from '../../images/artworks-small/artwork-13.jpg';
-import artwork14 from '../../images/artworks-small/artwork-14.png';
-import artwork15 from '../../images/artworks-small/artwork-15.png';
-import artwork16 from '../../images/artworks-small/artwork-16.png';
-import artwork17 from '../../images/artworks-small/artwork-17.png';
-import artwork18 from '../../images/artworks-small/artwork-18.png';
-import artwork19 from '../../images/artworks-small/artwork-19.png';
-import artwork20 from '../../images/artworks-small/artwork-20.png';
-import artwork21 from '../../images/artworks-small/artwork-21.png';
-import artwork22 from '../../images/artworks-small/artwork-22.jpg';
-import artwork23 from '../../images/artworks-small/artwork-23.jpg';
-import artwork24 from '../../images/artworks-small/artwork-24.png';
-import artwork25 from '../../images/artworks-small/artwork-25.png';
-import artwork26 from '../../images/artworks-small/artwork-26.png';
-import artwork27 from '../../images/artworks-small/artwork-27.png';
-import artwork28 from '../../images/artworks-small/artwork-28.jpg';
+import { AdvancedImage } from '@cloudinary/react';
+import { fill } from '@cloudinary/url-gen/actions/resize';
+import cld from '../../utils/cloudinary'; // Adjust the path if needed
 
 const Artworks = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [isFullscreenOpen, setIsFullscreenOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  // Artwork metadata
   const artworks = [
     {
       id: 1,
       title: "Playful Encounter",
       medium: "Acrylic on Canvas",
       year: "2010",
-      image: artwork11,
+      imageId: 'artworks-small/umg8u59zwf4aiwehrxny.jpg',
       categories: ["Decalcomania"]
     },
     {
@@ -41,7 +24,7 @@ const Artworks = () => {
       title: "Fragmented Portrait",
       medium: "Oil on Canvas",
       year: "2011",
-      image: artwork8,
+      imageId: 'artworks-small/lfiu7mzuym6prsb8xwyc.jpg',
       categories: ["Cubism"]
     },
     {
@@ -49,7 +32,7 @@ const Artworks = () => {
       title: "Pastoral Reflection",
       medium: "Mixed Media",
       year: "2012",
-      image: artwork15,
+      imageId: 'artwork-15_cwhpl1.png',
       categories: ["Cubism"]
     },
     {
@@ -57,7 +40,7 @@ const Artworks = () => {
       title: "Dancing Spirits",
       medium: "Acrylic on Paper",
       year: "2010",
-      image: artwork18,
+      imageId: 'artwork-18_bodmue.png',
       categories: ["Pastel"]
     },
     {
@@ -65,7 +48,7 @@ const Artworks = () => {
       title: "Energetic Burst",
       medium: "Watercolor",
       year: "2012",
-      image: artwork14,
+      imageId: 'artwork-14_zjasjd.png',
       categories: ["Collage"]
     },
     {
@@ -73,7 +56,7 @@ const Artworks = () => {
       title: "Rustic Bloom",
       medium: "Collage",
       year: "2011",
-      image: artwork12,
+      imageId: 'artworks-small/q9gxfwomjv2qaj5pr8gc.jpg',
       categories: ["Pastel", "Collage"]
     },
     {
@@ -81,7 +64,7 @@ const Artworks = () => {
       title: "Fruitful Still Life",
       medium: "Oil Painting",
       year: "2011",
-      image: artwork21,
+      imageId: 'artwork-21_j3wfb8.png',
       categories: ["Oil"]
     },
     {
@@ -89,15 +72,15 @@ const Artworks = () => {
       title: "Ornate Figure",
       medium: "Acrylic Painting",
       year: "2012",
-      image: artwork22,
+      imageId: 'artworks-small/qxrlcopfhjpfjjs9kjbl.jpg',
       categories: ["Cubism"]
     },
     {
       id: 9,
       title: "Bold Expression",
-      medium: "Digital Illustration",
+      medium: "Acrylic Painting",
       year: "2010",
-      image: artwork28,
+      imageId: 'artworks-small/bhrl5fyu7ppdpx8a1k1x.jpg',
       categories: ["Cubism"]
     },
     {
@@ -105,7 +88,7 @@ const Artworks = () => {
       title: "My Dad",
       medium: "Ink and Watercolor",
       year: "2012",
-      image: artwork19,
+      imageId: 'artworks-small/cezm4lfymmpuinrqyhwe.png',
       categories: ["Traditional Chinese"]
     },
     {
@@ -113,7 +96,7 @@ const Artworks = () => {
       title: "Serene Village",
       medium: "Ink on Rice Paper",
       year: "2010",
-      image: artwork17,
+      imageId: 'artworks-small/w3ctpwoyuk9l0dtczhrd.png',
       categories: ["Traditional Chinese"]
     },
     {
@@ -121,7 +104,7 @@ const Artworks = () => {
       title: "Childlike Whimsy",
       medium: "Mixed Media",
       year: "2011",
-      image: artwork16,
+      imageId: 'artwork-16_yrsvzj.png',
       categories: ["Cubism"]
     },
     {
@@ -129,7 +112,7 @@ const Artworks = () => {
       title: "Steel and Paper",
       medium: "Mixed Media",
       year: "2010",
-      image: artwork24,
+      imageId: 'artwork-24_ijeqpf.png',
       categories: ["Pastel", "Collage"]
     },
     {
@@ -137,7 +120,7 @@ const Artworks = () => {
       title: "Whimsical Garden",
       medium: "Paper and Acrylic",
       year: "2012",
-      image: artwork25,
+      imageId: 'artworks-small/yjvqkcbqmxsksqltzvyh.png',
       categories: ["Collage"]
     },
     {
@@ -145,7 +128,7 @@ const Artworks = () => {
       title: "Ceramic Still Life",
       medium: "Pastel and Paper",
       year: "2011",
-      image: artwork13,
+      imageId: 'artworks-small/vygwc4uto1lhyytbmjev.jpg',
       categories: ["Pastel", "Collage"]
     },
     {
@@ -153,7 +136,7 @@ const Artworks = () => {
       title: "Playful Dance",
       medium: "Mixed Media Collage",
       year: "2012",
-      image: artwork26,
+      imageId: 'artworks-small/rcoc26fdbmhycbx8zonq.png',
       categories: ["Collage"]
     },
     {
@@ -161,7 +144,7 @@ const Artworks = () => {
       title: "Aged Expression",
       medium: "Ink and Watercolor",
       year: "2010",
-      image: artwork27,
+      imageId: 'artworks-small/fjr60jmgluuavbxnkzwj.png',
       categories: ["Traditional Chinese"]
     },
     {
@@ -169,7 +152,7 @@ const Artworks = () => {
       title: "Metallic Elegance",
       medium: "Pastel and Paper",
       year: "2011",
-      image: artwork23,
+      imageId: 'artworks-small/ddg9gd8q1maxokbjmduv.jpg',
       categories: ["Pastel", "Collage"]
     },
     {
@@ -177,7 +160,7 @@ const Artworks = () => {
       title: "Joyful Stroll",
       medium: "Paper Collage",
       year: "2011",
-      image: artwork20,
+      imageId: 'artworks-small/r92iaytcxhmvgfehst6f.png',
       categories: ["Collage"]
     }
   ];
@@ -211,6 +194,16 @@ const Artworks = () => {
     );
   };
 
+  // Function to get Cloudinary image
+  const getCloudinaryImage = (imageId) => {
+    // Remove the folder prefix if the images are in the root directory in Cloudinary
+    // Or make sure the folder path matches exactly what's in Cloudinary
+    const image = cld.image(imageId);
+    // image.resize(fill().width(3000).height(4000));
+    // console.log('Image URL:', image.toURL()); // Add this for debugging
+    return image;
+  };
+
   return (
     <section className="art-gallery-section">
       <h2 className="art-gallery-title">Gallery</h2>
@@ -233,10 +226,9 @@ const Artworks = () => {
       <div className="art-gallery-grid">
         {filteredArtworks.map((artwork, index) => (
           <div className="artwork-item" key={artwork.id} onClick={() => openFullscreen(index)}>
-            <img
-              src={artwork.image}
+            <AdvancedImage
+              cldImg={getCloudinaryImage(artwork.imageId)}
               alt={artwork.title}
-              loading="lazy"
               className="artwork-image"
             />
             <div className="artwork-info">
@@ -250,11 +242,15 @@ const Artworks = () => {
       
       {isFullscreenOpen && (
         <FullScreenGallery
-          artworks={filteredArtworks}
+          artworks={filteredArtworks.map(artwork => ({
+            ...artwork,
+            image: getCloudinaryImage(artwork.imageId)
+          }))}
           currentIndex={currentImageIndex}
           onClose={closeFullscreen}
           onPrevious={goToPrevious}
           onNext={goToNext}
+          useCloudinary={true}
         />
       )}
     </section>

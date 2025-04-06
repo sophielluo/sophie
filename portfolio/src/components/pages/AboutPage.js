@@ -1,48 +1,45 @@
 import React from 'react';
-
-import cover1 from '../../images/about/cover-1.png';
-import cover2 from '../../images/about/cover-2.png';
-import cover3 from '../../images/about/cover-3.png';
-import arrow from '../../images/about/arrow.png';  // Import the arrow image
-
-// FOR FLOATING GALLERY
-import travel1 from '../../images/travel/travel-1.jpg';
-import travel2 from '../../images/travel/travel-2.jpg';
-import travel3 from '../../images/travel/travel-3.jpg';
-import travel4 from '../../images/travel/travel-4.jpg';
-import travel5 from '../../images/travel/travel-5.jpg';
-import travel6 from '../../images/travel/travel-6.jpg';
-import travel7 from '../../images/travel/travel-7.jpg';
-import travel8 from '../../images/travel/travel-8.jpg';
-import travel9 from '../../images/travel/travel-9.jpg';
-import travel10 from '../../images/travel/travel-10.jpg';
-import travel11 from '../../images/travel/travel-11.jpg';
-import travel12 from '../../images/travel/travel-12.jpg';
-
-// FOR POLAROIDS 
-import artwork1 from '../../images/artworks/artwork-1.jpg';
-import artwork3 from '../../images/artworks/artwork-3.jpg';
-import artwork5 from '../../images/artworks/artwork-5.jpg';
-import artwork6 from '../../images/artworks/artwork-6.jpg';
+import { AdvancedImage } from '@cloudinary/react';
+import cld from '../../utils/cloudinary'; // Make sure this path is correct
+import arrow from '../../images/about/arrow.png';  // Keep this one or move to Cloudinary too
 
 
 const About = ({ setCurrentPage }) => {
-  // Sample banner artworks - replace with your actual images
+  // Function to get Cloudinary image with resize transformation
+  const getCloudinaryImage = (imageId, width = 400, height = 300) => {
+    const image = cld.image(imageId);
+    return image;
+  };
+
+  // Sample banner artworks with Cloudinary image IDs
   const travelImages = [
-    { id: 1, title: "Travel 1", image: travel1 },
-    { id: 2, title: "Travel 2", image: travel2 },
-    { id: 3, title: "Travel 3", image: travel3 },
-    { id: 4, title: "Travel 4", image: travel4 },
-    { id: 5, title: "Travel 5", image: travel5 },
-    { id: 6, title: "Travel 6", image: travel6 },
-    { id: 7, title: "Travel 7", image: travel7 },
-    { id: 8, title: "Travel 8", image: travel8 },
-    { id: 9, title: "Travel 9", image: travel9 },
-    { id: 10, title: "Travel 10", image: travel10 },
-    { id: 11, title: "Travel 11", image: travel11 },
-    { id: 12, title: "Travel 12", image: travel12 },
+    { id: 1, title: "Travel 1", imageId: 'travel/orwkj4r9j4okifsaddqr.png' },
+    { id: 2, title: "Travel 2", imageId: 'travel/bcwy5yfwnswul3xvob16.jpg' },
+    { id: 3, title: "Travel 3", imageId: 'travel/vx4uy5av0dfdgdg3uhau.jpg' },
+    { id: 4, title: "Travel 4", imageId: 'travel/zzg2biyz4zmionaua32c.png' },
+    { id: 5, title: "Travel 5", imageId: 'travel/dbeneuxi3kof4uvphieo.jpg' },
+    { id: 6, title: "Travel 6", imageId: 'travel/bcwy5yfwnswul3xvob16.jpg' },
+    { id: 7, title: "Travel 7", imageId: 'travel/gabhv7km5ms4j9ggrals.jpg' },
+    { id: 8, title: "Travel 8", imageId: 'travel/nrkaufveejpjy3rawnum.png' },
+    { id: 9, title: "Travel 9", imageId: 'travel/prrgelvdrwgmabnbirfl.png' },
+    { id: 10, title: "Travel 10", imageId: 'travel/cbaq8jjlkt0i61hlz5tl.png' },
+    { id: 11, title: "Travel 11", imageId: 'travel/euaj7r6l3zph8ddj7kzh.jpg' },
+    { id: 12, title: "Travel 12", imageId: 'travel/d9gkesqml36ya4k6wkwx.jpg' },
   ];
 
+  // Define Cloudinary IDs for cover images and polaroids
+  const coverImages = {
+    cover1: 'about/ejtkvp33o7aat2wecjrz.png',
+    cover2: 'about/e6hfzybnoxz055m6ylxw.png',
+    cover3: 'about/ejtkvp33o7aat2wecjrz.png',
+  };
+
+  const polaroidImages = [
+    'artworks/btqw1gdle3wzkexvlzze.jpg',
+    'artworks/gq7wn5mcovxip72euf0v.jpg',
+    'artworks/fiogsmlaxkhuymwztf7i.jpg',
+    'artworks/jrqmebxthjib909ccnei.jpg'
+  ];
 
   // Duplicate to have enough for banner
   const duplicatedBanner = [...travelImages, ...travelImages];
@@ -62,6 +59,7 @@ const About = ({ setCurrentPage }) => {
   // Navigation functions
   const goToArtworks = () => navigateAndScrollToTop('artworks');
   const goToDesign = () => navigateAndScrollToTop('designs');
+  const goToMusic = () => navigateAndScrollToTop('music');
   const goToExperience = () => navigateAndScrollToTop('experiences');
 
   return (
@@ -91,7 +89,11 @@ const About = ({ setCurrentPage }) => {
           </div>
         </div>
         <div className="about-image">
-          <img src={cover1} alt="Me" className="about-me-picture" />
+          <AdvancedImage
+            cldImg={getCloudinaryImage(coverImages.cover1, 500, 600)}
+            alt="Me"
+            className="about-me-picture"
+          />
         </div>
       </div>
 
@@ -100,10 +102,9 @@ const About = ({ setCurrentPage }) => {
         <div className="floating-gallery-track">
           {duplicatedBanner.map((artwork, index) => (
             <div key={index} className="floating-gallery-item">
-              <img
-                src={artwork.image}
+              <AdvancedImage
+                cldImg={getCloudinaryImage(artwork.imageId, 300, 200)}
                 alt={artwork.title || `Artwork ${index + 1}`}
-                loading="lazy"
                 className="floating-gallery-image"
               />
             </div>
@@ -114,7 +115,11 @@ const About = ({ setCurrentPage }) => {
       {/* About travelling and early days */}
       <div className="about-container">
         <div className="about-image">
-          <img src={cover3} alt="Me" className="about-me-picture" />
+          <AdvancedImage
+            cldImg={getCloudinaryImage(coverImages.cover3, 500, 600)}
+            alt="Me"
+            className="about-me-picture"
+          />
         </div>
         <div className="about-content">
           <div className="about-text">
@@ -135,7 +140,7 @@ const About = ({ setCurrentPage }) => {
 
       {/* Polaroid Gallery */}
       <div className="polaroid-gallery">
-        {[artwork1, artwork3, artwork5, artwork6].map((image, index) => (
+        {polaroidImages.map((imageId, index) => (
           <div
             key={index}
             className="polaroid"
@@ -145,10 +150,9 @@ const About = ({ setCurrentPage }) => {
             }}
           >
             <div className="polaroid-image-container">
-              <img
-                src={image}
+              <AdvancedImage
+                cldImg={getCloudinaryImage(imageId, 250, 300)}
                 alt={`Polaroid ${index + 1}`}
-                loading="lazy"
                 className="polaroid-image"
               />
             </div>
@@ -179,11 +183,21 @@ const About = ({ setCurrentPage }) => {
               >
                 View Artworks
               </button>
+              <button
+                className="art-category-button"
+                onClick={goToMusic}
+              >
+                Listen to Songs
+              </button>
             </div>
           </div>
         </div>
         <div className="about-image">
-          <img src={cover2} alt="Me" className="about-me-picture" />
+          <AdvancedImage
+            cldImg={getCloudinaryImage(coverImages.cover2, 500, 600)}
+            alt="Me"
+            className="about-me-picture"
+          />
         </div>
       </div>
     </section>

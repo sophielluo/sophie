@@ -32,18 +32,18 @@ const Designs = () => {
     <section className="designs-section">
       <h2>Design Work</h2>
       <p>A collection of my recent design projects spanning web, mobile, and branding.</p>
-      <div className="portfolio-grid">
+      <div className="design-grid">
         {designs.map(design => (
-          <div key={design.id} className="portfolio-item">
-            <div className="portfolio-item-image">
+          <div key={design.id} className="design-item">
+            <div className="design-item-image">
               <div className="image-placeholder"></div>
             </div>
-            <div className="portfolio-item-content">
+            <div className="design-item-content">
               <h3>{design.title}</h3>
               <p>{design.description}</p>
-              <div className="portfolio-tags">
+              <div className="design-tags">
                 {design.tags.map((tag, index) => (
-                  <span key={index} className="portfolio-tag">{tag}</span>
+                  <span key={index} className="design-tag">{tag}</span>
                 ))}
               </div>
             </div>

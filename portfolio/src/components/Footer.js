@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -14,9 +14,9 @@ const Footer = () => {
         <a href="https://github.com//sophielluo" className="social-link">
             <FaGithub size={24} />
         </a>
-        {/* Instagram */}
-        <a href="https://www.instagram.com/" className="social-link">
-          <FaInstagram size={24} />
+        {/* WhatsApp */}
+        <a href="https://wa.me/6587796679" className="social-link">
+          <FaWhatsapp size={24} />
         </a>
       </div>
       <p>&copy; {new Date().getFullYear()} My Portfolio. All rights reserved.</p>

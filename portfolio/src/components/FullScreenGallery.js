@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
+import { AdvancedImage } from '@cloudinary/react';
 
-const FullscreenGallery = ({ artworks, currentIndex, onClose, onPrevious, onNext }) => {
+const FullscreenGallery = ({ artworks, currentIndex, onClose, onPrevious, onNext, useCloudinary = false }) => {
   const contentRef = useRef(null);
   
   // Handle keyboard navigation and click outside
@@ -54,12 +55,20 @@ const FullscreenGallery = ({ artworks, currentIndex, onClose, onPrevious, onNext
           onClick={handleContentClick}
         >
           <div className="image-wrapper">
-            <img 
-              src={artwork.image} 
-              alt={artwork.title} 
-              loading="lazy"
-              className="fullscreen-image" 
-            />
+            {useCloudinary ? (
+              <AdvancedImage 
+                cldImg={artwork.image}
+                alt={artwork.title} 
+                className="fullscreen-image" 
+              />
+            ) : (
+              <img 
+                src={artwork.image} 
+                alt={artwork.title} 
+                loading="lazy"
+                className="fullscreen-image" 
+              />
+            )}
           </div>
           
           <div className="fullscreen-info">
