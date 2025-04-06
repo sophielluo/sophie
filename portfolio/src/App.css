@@ -92,7 +92,8 @@ nav ul {
   gap: 1.5rem;
 }
 
-nav button {
+/* sliding line below */
+/* nav button {
   background: none;
   border: none;
   font-family: 'Times New Roman Condensed', sans-serif;
@@ -124,6 +125,48 @@ nav button.active::after {
 nav button.active {
   color: var(--primary);
   font-weight: 600;
+} */
+
+/* retro button  */
+nav button {
+  background: none;
+  border: 2px solid #1e3a8a;
+  border-bottom-width: 4px;
+  border-right-width: 4px;
+  border-radius: 4px;
+  font-family: 'Times New Roman Condensed', sans-serif;
+  font-weight: 1000;
+  font-size: 1.5rem;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background-color: var(--secondary);
+  box-shadow: 3px 3px 0 var(--primary);
+  transform: translateY(0) translateX(0);
+}
+
+nav button::after {
+  content: none; /* Remove the underline effect */
+}
+
+nav button:hover {
+  transform: translateY(1px) translateX(1px);
+  box-shadow: 2px 2px 0 var(--primary);
+}
+
+nav button:active {
+  transform: translateY(4px) translateX(4px);
+  box-shadow: 0px 0px 0 var(--primary);
+  transition: all 0.05s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+nav button.active {
+  color: var(--primary);
+  font-weight: 600;
+  transform: translateY(3px) translateX(3px);
+  box-shadow: 1px 1px 0 var(--primary);
 }
 
 /* Main Content Styles */
