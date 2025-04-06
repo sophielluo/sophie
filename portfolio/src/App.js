@@ -17,7 +17,7 @@ function App() {
   const renderPage = () => {
     switch(currentPage) {
       case 'about':
-        return <About />;
+        return <About setCurrentPage={setCurrentPage} />;
       case 'experiences':
         return <Experiences />;
       case 'designs':
@@ -29,7 +29,7 @@ function App() {
       case 'music':
         return <Music />;
       default:
-        return <About />;
+        return <About setCurrentPage={setCurrentPage} />;
     }
   };
 

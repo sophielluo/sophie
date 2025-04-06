@@ -27,8 +27,8 @@ const Music = () => {
 
   return (
     <section className="music-section">
-      <h2>Music Projects</h2>
-      <p className="section-description">A collection of my musical compositions and productions.</p>
+      <h2>My Covers</h2>
+      <p className="section-description">I sing sometimes (actually a lot). From showers to stage performances, singing brings me pure joy. I always believed that Music has been one of mankind's greatest gift, allowing us to express what words alone cannot. Below are some covers I've created over the years - little pieces of my heart shared through melody.</p>
       <div className="music-tracks-container">
         {tracks.map(track => (
           <div key={track.id} className="music-track-item">

@@ -8,8 +8,8 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
     { id: 'about', label: 'about me' },
     { id: 'experiences', label: 'experiences' },
     { id: 'designs', label: 'designs' },
-    { id: 'artworks', label: 'artworks' },
-    { id: 'photography', label: 'photography' },
+    { id: 'artworks', label: 'gallery' },
+    // { id: 'photography', label: 'photography' },
     { id: 'music', label: 'music' }
   ];
 
