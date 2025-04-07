@@ -207,7 +207,7 @@ const About = ({ setCurrentPage }) => {
               </div>
               <div className="stat-item">
                 <span className="stat-number">{statValues.tabs}+</span>
-                <span className="stat-label">Tabs open in my browser which i really need help for</span>
+                <span className="stat-label">Tabs open in my browser which I really need help for</span>
               </div>
               <div className="stat-item">
                 <span className="stat-number">{statValues.plays}+</span>
