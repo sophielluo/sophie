@@ -35,7 +35,7 @@ const Designs = () => {
       title: "RallyHub",
       description: (
         <>
-          A platform for tennis / pickle ball lovers to aasily discover and book courts across Ontario at their convenience. You can find the prototype for this project on my {" "}
+          A platform for tennis / pickle ball lovers to easily discover and book courts across Ontario at their convenience. You can find the prototype for this project on my {" "}
           <a 
             href="https://github.com/sophielluo/rallyhub" 
             target="_blank" 
