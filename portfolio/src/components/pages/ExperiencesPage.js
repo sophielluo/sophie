@@ -161,8 +161,7 @@ const Experiences = () => {
       organization: "TikTok",
       description: (
         <>
-          We built an AI-powered shopping assistant that uses <strong>Yolo v8</strong> and <strong>OpenCV</strong> 
-          to identify products in TikTok videos. When users watch content, our algorithm recognizes featured items 
+          We built an AI-powered shopping assistant that uses <strong>Yolo v8</strong> and <strong>OpenCV</strong> to identify products in TikTok videos. When users watch content, our algorithm recognizes featured items 
           and displays swipe-able React cards recommending similar products, creating a seamless discovery experience for TikTok Shop.
         </>
       ),
