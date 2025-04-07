@@ -70,7 +70,15 @@ const Experiences = () => {
       period: "Jan 2025 - Present, Toronto",
       role: "Project Manager",
       company: "Mavennet",
-      description: "Currently at Mavennet, a Toronto technology company specializing in digital transformation and venture creation, I am working as a product manager in one of its latest consulting projects, where I have learnt to effectively balance strategic planning with agile execution. Additionally, I have developed strong communication skills to foster cross-functional collaboration and gained autonomy in managing various tasks.",
+      description: (
+        <>
+          Currently at <em>Mavennet</em>, a Toronto technology company specializing in <em>digital transformation</em> and <em>venture creation</em>, 
+          I am taking up the role as a <strong>project manager</strong> in one of its latest consulting projects, 
+          where I have learnt to effectively balance <strong>strategic planning</strong> with <strong>agile execution</strong>. 
+          Additionally, I have developed <strong>strong communication skills</strong> to foster <strong>cross-functional collaboration</strong> and 
+          gained <strong>autonomy</strong> in managing various tasks.
+        </>
+      ),
       companyLogo: orgLogos.mavennet,
       workMedia: [
         { type: 'image', src: workMedia.mavennet1 },
@@ -84,7 +92,15 @@ const Experiences = () => {
       period: "Aug - Nov 2024, Singapore",
       role: "Software Engineer",
       company: "Shopback",
-      description: "At ShopBack, Asia-Pacific's leading shopping, rewards, and payments platform, I focus on enhancing code efficiency and maintainability, as well as automating internal processes to boost operational efficiency by 90%. I learned the importance of critically assessing established processes and the necessity of continual refinement to ensure they remain effective and relevant. Always game for new challenges, I embarked on a 3-month internship in Vietnam.",
+      description: (
+        <>
+          At <em>ShopBack</em>, Asia-Pacific's leading shopping, rewards, and payments platform, 
+          I focus on <strong>enhancing code efficiency</strong> and <strong>maintainability</strong>, 
+          as well as <strong>automating</strong> internal processes to <strong>boost operational efficiency by 90%</strong>. 
+          I learned the importance of critically assessing established processes and the 
+          necessity of continual refinement to ensure they remain effective and relevant.
+        </>
+      ),
       companyLogo: orgLogos.shopback,
       workMedia: [
         { type: 'image', src: workMedia.shopback1 },
@@ -96,7 +112,15 @@ const Experiences = () => {
       period: "May - Aug 2024, Vietnam",
       role: "UI/UX Designer",
       company: "MyStorage",
-      description: "At MyStorage, Vietnam's tech-driven industry leader that provides storage and moving solutions, I redesigned the UI/UX of the online booking application and conducted A/B testing, resulting in a 60% increase in retention rate. These experiences have equipped me with a solid foundation in software development, project management, process optimization, and design.",
+      description: (
+        <>
+          At <em>MyStorage</em>, Vietnam's tech-driven industry leader that provides storage and moving solutions, 
+          I redesigned the <strong>UI/UX</strong> of the online booking application and 
+          conducted <strong>A/B testing</strong>, resulting in a <strong>60% increase in retention rate</strong>. 
+          These experiences have equipped me with a solid foundation in <strong>software development</strong>, 
+          <strong>project management</strong>, <strong>process optimization</strong>, and <strong>design</strong>.
+        </>
+      ),
       companyLogo: orgLogos.mystorage,
       workMedia: [
         { type: 'image', src: workMedia.mystorage1 },
@@ -134,7 +158,13 @@ const Experiences = () => {
       role: "Finalist",
       company: "TikTok TechJam",
       organization: "TikTok",
-      description: "We built an AI-powered shopping assistant that uses Yolo v8 and OpenCV to identify products in TikTok videos. When users watch content, our algorithm recognizes featured items and displays swipe-able React cards recommending similar products, creating a seamless discovery experience for TikTok Shop.",
+      description: (
+        <>
+          We built an AI-powered shopping assistant that uses <strong>Yolo v8</strong> and <strong>OpenCV</strong> 
+          to identify products in TikTok videos. When users watch content, our algorithm recognizes featured items 
+          and displays swipe-able React cards recommending similar products, creating a seamless discovery experience for TikTok Shop.
+        </>
+      ),
       companyLogo: orgLogos.techjam,
       workMedia: [
         { type: 'image', src: workMedia.techjam1 },
@@ -150,7 +180,13 @@ const Experiences = () => {
       role: "Participant",
       company: "hackhcmc",
       organization: "AngelHack",
-      description: "Built an AI-powered image analysis tool for Heineken using Yolo v8 computer vision algorithms to quantify brand presence across datasets. Developed a full-stack prototype with React frontend and Supabase backend to help optimize Heineken's marketing procedures.",
+      description: (
+        <>
+          Built an AI image analysis tool for Heineken using <strong>Yolo v8</strong> computer vision algorithms to 
+          quantify brand presence across datasets. Developed a <strong>full-stack</strong> prototype with <strong>React</strong> 
+          frontend and <strong>Supabase</strong> backend to help optimize Heineken's marketing procedures.
+        </>
+      ),
       companyLogo: orgLogos.hackhcmc,
       workMedia: [
         { type: 'image', src: workMedia.hackhcmc1 },
@@ -316,7 +352,7 @@ const Experiences = () => {
                 <h3 className="timeline-title">{exp.role} at {exp.company}</h3>
                 {renderCompanySkillLogos(exp.skills)}
               </div>
-              <p>{exp.description}</p>
+              <p>{typeof exp.description === 'string' ? exp.description : exp.description}</p>
               <div className="work-images">
                 {renderWorkMedia(exp.workMedia)}
               </div>

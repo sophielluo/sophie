@@ -97,7 +97,7 @@ const About = ({ setCurrentPage }) => {
         <div className="about-content">
           <div className="about-text">
             <p>Let me let you in on a little secret - I grew up wanting to be a singer. A fun fact: I have achieved over 200K streams across various music platforms! So how did I end up coding? Extracting music files from sites using developer mode because my mom wouldn't get me Spotify Premium back in Primary School.</p>
-            <p>This debatably unethical hack ignited my early passions for problem-solving. For me, coding isn't just a trendy career path—it's a powerful tool for tackling challenges. I thrive on identifying problems and crafting innovative solutions, which is why I'm drawn to dynamic tech ecosystems.</p>
+            <p>This debatably unethical hack ignited my early passions for problem-solving. For me, coding isn't just a trendy career path—it's a powerful tool for tackling challenges. <strong>I thrive on identifying problems and crafting innovative solutions</strong>, which is why I'm drawn to dynamic tech ecosystems.</p>
             <div className="stats-container">
               <div className="stat-item">
                 <span className="stat-number">5+</span>
@@ -150,7 +150,7 @@ const About = ({ setCurrentPage }) => {
         <div className="about-content">
           <div className="about-text">
             <p>Born in Singapore, spent a few years in China and the US before returning to complete my education here. This leaves me proficiently bilingual or as some may call it - bicultural. These international experiences sparked my love for travel and adventure from a really young age. (P.S. If you can identify all the places I've visited in the banner above, then serious props to you.)</p>
-            <p>This adventurous spirit follows me everywhere, including my career path: I've completed internships across three different countries, each offering unique perspectives and challenges. What to say? I am always down for new experiences and challenges. At this rate, my passport collects stamps faster than I finish a Netflix series without starting three new ones. </p>
+            <p>This adventurous spirit follows me everywhere, including my career path: <strong>I've completed internships across 3 different countries</strong> so far, each offering unique perspectives and challenges. What to say? I am <strong>always down for new experiences and challenges</strong>. At this rate, my passport collects stamps faster than I finish a Netflix series without starting three new ones. </p>
           </div>
           <div className="adventure-categories" style={{ marginTop: '2rem' }}>
               <div 
@@ -193,8 +193,9 @@ const About = ({ setCurrentPage }) => {
       <div className="about-container">
         <div className="about-content">
           <div className="about-text">
-            <p>As you can probably see in the above images, from doodles at age 2 to oil paintings, traditional Chinese art and beyond, I've always had a pencil (or brush) in hand, and passion for art & music at heart. Lately, I've also been capturing life's quirks through photography and diving into digital design.</p>
-            <p>Last May, I had the chance to turn my creative energy into real-world impact during my first internship. I'm all about blending art and tech to craft designs that not only look good but make life easier — and I can't wait to bring that spark to the next big project! But in the meantime, check out some of my past projects:</p>
+            <p>As you can probably see in the above images, from doodles at age 2 to oil paintings, traditional Chinese art and beyond, I've always had a pencil (or brush) in hand, and <strong>passion for art & music at heart</strong>. Lately, I've also been capturing life's quirks through photography and diving into digital design.</p>
+            <p>Last May, I had the chance to turn my creative energy into real-world impact during my first internship. I'm all about <strong>blending art and tech</strong> to craft designs that not only look good but make life easier — and I can't wait to bring that spark to the next big project!</p>
+            <p>But in the meantime, check out some of my past projects:</p>
             {/* Navigation Buttons */}
             <div className="art-categories" style={{ marginTop: '2rem' }}>
               <button
