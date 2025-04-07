@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AdvancedImage } from '@cloudinary/react';
 import cld from '../../utils/cloudinary'; // Make sure this path is correct
@@ -12,6 +12,22 @@ const About = ({ setCurrentPage }) => {
   const getCloudinaryImage = (imageId, width = 400, height = 300) => {
     const image = cld.image(imageId);
     return image;
+  };
+
+  // State for our counter values
+  const [statValues, setStatValues] = useState({
+    projects: 0,
+    tabs: 0,
+    plays: 0
+  });
+
+  const animationStarted = useRef(false);
+  
+  // Final values we want to count to
+  const finalValues = {
+    projects: 5,
+    tabs: 50,
+    plays: 200
   };
 
   // Sample banner artworks with Cloudinary image IDs
@@ -46,6 +62,57 @@ const About = ({ setCurrentPage }) => {
 
   // Duplicate to have enough for banner
   const duplicatedBanner = [...travelImages, ...travelImages];
+
+  // Use Intersection Observer to trigger the animation when stats are visible
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const [entry] = entries;
+      
+      if (entry.isIntersecting && !animationStarted.current) {
+        animationStarted.current = true;
+        
+        // Animation duration in milliseconds
+        const duration = 2000;
+        const frameDuration = 1000 / 60; // 60fps
+        const totalFrames = Math.round(duration / frameDuration);
+        
+        let frame = 0;
+        
+        // Start the animation
+        const timer = setInterval(() => {
+          frame++;
+          
+          // Calculate current values based on easing function
+          const progress = frame / totalFrames;
+          // Use easeOutExpo for a nice effect
+          const easeProgress = 1 - Math.pow(1 - progress, 3);
+          
+          setStatValues({
+            projects: Math.min(Math.floor(easeProgress * finalValues.projects), finalValues.projects),
+            tabs: Math.min(Math.floor(easeProgress * finalValues.tabs), finalValues.tabs),
+            plays: Math.min(Math.floor(easeProgress * finalValues.plays), finalValues.plays)
+          });
+          
+          // Stop when we reach the total frames
+          if (frame === totalFrames) {
+            clearInterval(timer);
+          }
+        }, frameDuration);
+      }
+    }, { threshold: 0.1 });
+    
+    // Get the stats container
+    const statsContainer = document.querySelector('.stats-container');
+    if (statsContainer) {
+      observer.observe(statsContainer);
+    }
+    
+    return () => {
+      if (statsContainer) {
+        observer.unobserve(statsContainer);
+      }
+    };
+  }, []);
 
   // Function to scroll to top and navigate
   const navigateAndScrollToTop = (page) => {
@@ -100,15 +167,15 @@ const About = ({ setCurrentPage }) => {
             <p>This debatably unethical hack ignited my early passions for problem-solving. For me, coding isn't just a trendy career path—it's a powerful tool for tackling challenges. <strong>I thrive on identifying problems and crafting innovative solutions</strong>, which is why I'm drawn to dynamic tech ecosystems.</p>
             <div className="stats-container">
               <div className="stat-item">
-                <span className="stat-number">5+</span>
+                <span className="stat-number">{statValues.projects}+</span>
                 <span className="stat-label">Unfinished side projects I swear I'll get back to</span>
               </div>
               <div className="stat-item">
-                <span className="stat-number">50+</span>
+                <span className="stat-number">{statValues.tabs}+</span>
                 <span className="stat-label">Tabs open in my browser which i really need help for</span>
               </div>
               <div className="stat-item">
-                <span className="stat-number">200+</span>
+                <span className="stat-number">{statValues.plays}+</span>
                 <span className="stat-label">Times playing "Dive" by Olivia Dean on loop</span>
               </div>
             </div>
