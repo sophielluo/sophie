@@ -105,7 +105,7 @@ const About = ({ setCurrentPage }) => {
                 <span className="stat-label">Tabs open in my browser which i really need help for</span>
               </div>
               <div className="stat-item">
-                <span className="stat-number">300+</span>
+                <span className="stat-number">200+</span>
                 <span className="stat-label">Times playing "Dive" by Olivia Dean on loop</span>
               </div>
             </div>
