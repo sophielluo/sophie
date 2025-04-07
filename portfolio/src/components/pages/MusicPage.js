@@ -73,7 +73,7 @@ const MusicPage = () => {
       {
         "id": 4,
         "title": "刻在我心底的名字",
-        "description": "Up till now I still wonder what is the correction pronunciation of the first line... I hope my 4 years of O-level French did not fail me this time.", 
+        "description": "Up till now I still wonder what is the correct pronunciation of the first line... I hope my 4 years of O-level French did not fail me this time.", 
         "tags": ["Mandarin", "Soundtrack"],
         "cloudinaryId": "kezaiwo_lpzjwg.mp3",
         "fileType": "mp3",
