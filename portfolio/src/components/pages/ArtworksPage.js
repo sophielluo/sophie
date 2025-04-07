@@ -8,6 +8,7 @@ const Artworks = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [isFullscreenOpen, setIsFullscreenOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const clickSoundURL = "https://res.cloudinary.com/dytt6x7n7/video/upload/v1743975038/mouse_click_light_shortened_qp9omx.mp4";
 
   // Artwork metadata
   const artworks = [
@@ -169,29 +170,49 @@ const Artworks = () => {
   const categories = ['All', ...new Set(artworks.map(artwork => artwork.categories).flat())];
 
   // Filter artworks based on active category
-  const filteredArtworks = activeCategory === 'All' 
-    ? artworks 
+  const filteredArtworks = activeCategory === 'All'
+    ? artworks
     : artworks.filter(artwork => artwork.categories.includes(activeCategory));
 
   const openFullscreen = (index) => {
     setCurrentImageIndex(index);
     setIsFullscreenOpen(true);
   };
-  
+
+  const handleOpenFullscreen = (index) => {
+    playClickSound();
+    openFullscreen(index);
+  };
+
   const closeFullscreen = () => {
     setIsFullscreenOpen(false);
   };
-  
+
+  const handleCloseFullscreen = (index) => {
+    playClickSound();
+    closeFullscreen(index);
+  };
+
   const goToPrevious = () => {
-    setCurrentImageIndex((prevIndex) => 
+    setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? filteredArtworks.length - 1 : prevIndex - 1
     );
   };
-  
+
+  const handleGoToPrevious = () => {
+    playClickSound();
+    goToPrevious();
+  };
+
   const goToNext = () => {
-    setCurrentImageIndex((prevIndex) => 
+    setCurrentImageIndex((prevIndex) =>
       prevIndex === filteredArtworks.length - 1 ? 0 : prevIndex + 1
     );
+  };
+
+  const handleGoToNext = () => {
+    playClickSound();
+    goToNext();
   };
 
   // Function to get Cloudinary image
@@ -204,28 +225,52 @@ const Artworks = () => {
     return image;
   };
 
+  const playClickSound = () => {
+    try {
+      // Create a fresh audio instance each time
+      const sound = new Audio(clickSoundURL);
+      sound.volume = 0.3; // Set volume (0.0 to 1.0)
+
+      // Add an event listener to remove the element after it plays
+      sound.addEventListener('ended', () => {
+        sound.remove(); // Clean up after playback
+      });
+
+      // Play the sound with error handling
+      sound.play().catch(err => {
+        console.warn('Could not play sound:', err);
+      });
+    } catch (err) {
+      console.error('Error creating audio:', err);
+    }
+  };
+
+  const handleCategoryChange = (category) => {
+    playClickSound();
+    setActiveCategory(category);
+  };
+
   return (
     <section className="art-gallery-section">
       <h2 className="art-gallery-title">Gallery</h2>
-      <p className="art-gallery-description">A selection of personal and client artwork projects spanning various media and styles.</p>
-      
+      <p className="art-gallery-description">Long before I knew how to code, I expressed myself through color and form. This collection showcases my artistic journey from childhood—raw, unfiltered creativity that still influences my design thinking today. These pieces represent the foundation of my visual storytelling, from traditional Chinese techniques to experimental modern styles.</p>
       {/* Category Filter Buttons */}
       <div className="art-categories">
         {categories.map(category => (
-          <button 
+          <button
             key={category}
             className={`art-category-button ${activeCategory === category ? 'active' : ''}`}
-            onClick={() => setActiveCategory(category)}
+            onClick={() => handleCategoryChange(category)}
           >
             {category}
           </button>
         ))}
       </div>
-      
+
       {/* Main Art Gallery Grid */}
       <div className="art-gallery-grid">
         {filteredArtworks.map((artwork, index) => (
-          <div className="artwork-item" key={artwork.id} onClick={() => openFullscreen(index)}>
+          <div className="artwork-item" key={artwork.id} onClick={() => handleOpenFullscreen(index)}>
             <AdvancedImage
               cldImg={getCloudinaryImage(artwork.imageId)}
               alt={artwork.title}
@@ -239,7 +284,7 @@ const Artworks = () => {
           </div>
         ))}
       </div>
-      
+
       {isFullscreenOpen && (
         <FullScreenGallery
           artworks={filteredArtworks.map(artwork => ({
@@ -247,9 +292,9 @@ const Artworks = () => {
             image: getCloudinaryImage(artwork.imageId)
           }))}
           currentIndex={currentImageIndex}
-          onClose={closeFullscreen}
-          onPrevious={goToPrevious}
-          onNext={goToNext}
+          onClose={handleCloseFullscreen}
+          onPrevious={handleGoToPrevious}
+          onNext={handleGoToNext}
           useCloudinary={true}
         />
       )}

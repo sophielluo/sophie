@@ -8,6 +8,27 @@ const MusicPage = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [musicNotes, setMusicNotes] = useState({});
+  const clickSoundURL = "https://res.cloudinary.com/dytt6x7n7/video/upload/v1743975038/mouse_click_light_shortened_qp9omx.mp4";
+
+  const playClickSound = () => {
+    try {
+      // Create a fresh audio instance each time
+      const sound = new Audio(clickSoundURL);
+      sound.volume = 0.3; // Set volume (0.0 to 1.0)
+      
+      // Add an event listener to remove the element after it plays
+      sound.addEventListener('ended', () => {
+        sound.remove(); // Clean up after playback
+      });
+      
+      // Play the sound with error handling
+      sound.play().catch(err => {
+        console.warn('Could not play sound:', err);
+      });
+    } catch (err) {
+      console.error('Error creating audio:', err);
+    }
+  };
 
   // Ref to store all audio elements
   const audioRefs = useRef({});
@@ -25,65 +46,65 @@ const MusicPage = () => {
       {
         "id": 1,
         "title": "Back to December",
-        "description": "A heartfelt ballad by Taylor Swift, expressing regret and a plea for forgiveness to a past lover.",
+        "description": "One of my favorite songs from her earlier eras. The bridge is just way too beautiful...",
         "tags": ["Country Pop", "Ballad", "Taylor Swift"],
         "cloudinaryId": "backtodecember_ty6krb.mp3",
         "fileType": "mp3",
-        "coverId": "vinyl_sparksfly_gajhpk.png"
+        "coverId": "sparks_fly_fvyfqi.png"
       },
       {
         "id": 2,
         "title": "Sparks Fly",
-        "description": "An energetic track by Taylor Swift about the excitement and risk of a passionate, yet potentially dangerous, attraction.",
+        "description": "I promise you there are more songs in this list than just the ones from Taylor Swift.",
         "tags": ["Country Pop", "Upbeat", "Taylor Swift"],
         "cloudinaryId": "sparksfly_zmg6go.mp3",
         "fileType": "mp3",
-        "coverId": "vinyl_sparksfly_gajhpk.png"
+        "coverId": "sparks_fly_fvyfqi.png"
       },
       {
         "id": 3,
         "title": "光阴独白",
-        "description": "A soulful Mandarin song by 徐佳莹, reflecting on the passage of time and introspective moments.",
+        "description": "Got super super addicted to this song after watching a c-drama for which this is the OST.",
         "tags": ["Mandarin", "Ballad"],
-        "cloudinaryId": "obj_w5rDlsOJwrLDjj7CmsOj_10338587758_f695_30a3_3194_4724e91c05256f39c7d56bbac3418a62_ovm9la.mp4",
+        "cloudinaryId": "guangyin_ryxj4l.m4a",
         "fileType": "mp4",
-        "coverId": "vinyl_sparksfly_gajhpk.png"
+        "coverId": "gydb_fsylpa.png"
       },
       {
         "id": 4,
         "title": "刻在我心底的名字",
-        "description": "An emotive ballad by 卢广仲, serving as the theme song for the Taiwanese film of the same name, delving into themes of love and identity.",
+        "description": "Up till now I still wonder what is the correction pronunciation of the first line... I hope my 4 years of O-level French did not fail me this time.", 
         "tags": ["Mandarin", "Soundtrack"],
         "cloudinaryId": "kezaiwo_lpzjwg.mp3",
         "fileType": "mp3",
-        "coverId": "vinyl_sparksfly_gajhpk.png"
+        "coverId": "kzbxddmz_e3wnkc.png"
       },
       {
         "id": 5,
         "title": "10409",
-        "description": "An original composition reflecting personal experiences and emotions upon graduating from NYGH.",
+        "description": "My farewell tribute to Nanyang.",
         "tags": ["Original", "Instrumental", "Graduation"],
-        "cloudinaryId": "obj_w5rDlsOJwrLDjj7CmsOj_4772233488_df30_9078_0197_915e2e34aba23b5d509b87ad8df7a498_bkjkx5.mp4",
+        "cloudinaryId": "10409_banqxb.mp4",
         "fileType": "mp4",
-        "coverId": "vinyl_sparksfly_gajhpk.png"
+        "coverId": "10409_cover_xunz8r.png"
       },
       {
         "id": 6,
         "title": "I'm Me",
-        "description": "An empowering song by Us The Duo, celebrating individuality and self-acceptance.",
+        "description": "A really cute song by Us the Duo! They have many many good songs.",
         "tags": ["Pop", "Inspirational", "Happy"],
         "cloudinaryId": "5159_030e_0208_f3f8d5b77c4d68ce916b5b6f7d50202e_dxlokb.mp4",
         "fileType": "mp4",
-        "coverId": "vinyl_sparksfly_gajhpk.png"
+        "coverId": "imme_tgtdxz.png"
       },
       {
         "id": 7,
         "title": "Someone You Loved",
-        "description": "A poignant ballad by Lewis Capaldi, exploring themes of loss and longing after the end of a relationship.",
+        "description": "I forgot why I recorded this, I guess it was trending then.",
         "tags": ["Pop", "Ballad"],
         "cloudinaryId": "0153_0552_5558_693595ce2128af302027b2131906cdf9_wwmyue.mp4",
         "fileType": "mp4",
-        "coverId": "vinyl_sparksfly_gajhpk.png"
+        "coverId": "someoneyouloved_n5esqd.png"
       }
     ];
 
@@ -150,6 +171,11 @@ const MusicPage = () => {
       setDuration(audioElement.duration);
       startGeneratingNotes(trackId);
     }
+  };
+
+  const handleTogglePlay = (trackId) => {
+    playClickSound();
+    togglePlay(trackId);
   };
 
   // Function to start generating notes
@@ -241,8 +267,9 @@ const MusicPage = () => {
     <div className="music-section">
       <h2>My Covers</h2>
       <p className="section-description">
-        Explore my music compositions across various genres and styles.
-        Each track represents a unique sonic journey and creative expression.
+        I sing sometimes (actually a lot). From shower sessions to stage performances, singing brings me pure joy. 
+        I always believed that music has been one of mankind's greatest gift, allowing us to express what words alone cannot. 
+        Below are some covers I've created over the years - little pieces of my heart shared through melody.
       </p>
 
       {loadingTracks ? (
@@ -260,7 +287,7 @@ const MusicPage = () => {
                   />
                   <div
                     className={`play-button-overlay ${playingTrackId === track.id ? 'hidden' : ''}`}
-                    onClick={() => togglePlay(track.id)}
+                    onClick={() => handleTogglePlay(track.id)}
                   ></div>
 
                   {/* Add this static floating notes container */}

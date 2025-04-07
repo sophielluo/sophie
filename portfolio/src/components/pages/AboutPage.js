@@ -1,10 +1,11 @@
 import React from 'react';
 import { AdvancedImage } from '@cloudinary/react';
 import cld from '../../utils/cloudinary'; // Make sure this path is correct
-import arrow from '../../images/about/arrow.png';  // Keep this one or move to Cloudinary too
+import arrow from '../../images/about/arrow.png'; 
 
 
 const About = ({ setCurrentPage }) => {
+  const clickSoundURL = "https://res.cloudinary.com/dytt6x7n7/video/upload/v1743975038/mouse_click_light_shortened_qp9omx.mp4";
   // Function to get Cloudinary image with resize transformation
   const getCloudinaryImage = (imageId, width = 400, height = 300) => {
     const image = cld.image(imageId);
@@ -46,6 +47,7 @@ const About = ({ setCurrentPage }) => {
 
   // Function to scroll to top and navigate
   const navigateAndScrollToTop = (page) => {
+    playClickSound();
     // First scroll to the top
     window.scrollTo({
       top: 0,
@@ -61,6 +63,27 @@ const About = ({ setCurrentPage }) => {
   const goToDesign = () => navigateAndScrollToTop('designs');
   const goToMusic = () => navigateAndScrollToTop('music');
   const goToExperience = () => navigateAndScrollToTop('experiences');
+
+  // Create a new Audio instance for each click
+  const playClickSound = () => {
+    try {
+      // Create a fresh audio instance each time
+      const sound = new Audio(clickSoundURL);
+      sound.volume = 0.3; // Set volume (0.0 to 1.0)
+      
+      // Add an event listener to remove the element after it plays
+      sound.addEventListener('ended', () => {
+        sound.remove(); // Clean up after playback
+      });
+      
+      // Play the sound with error handling
+      sound.play().catch(err => {
+        console.warn('Could not play sound:', err);
+      });
+    } catch (err) {
+      console.error('Error creating audio:', err);
+    }
+  };
 
   return (
     <section className="about-section">

@@ -36,6 +36,19 @@ body {
   background-color: var(--secondary);
   color: var(--text);
   line-height: 1.6;
+  cursor: url('https://res.cloudinary.com/dytt6x7n7/image/upload/v1743976056/cursor_finalFinal_vlosfl.png') 0 0, auto;
+}
+
+/* Apply the custom cursor to all elements */
+*, a, button, input, textarea, select, .play-button, .nav-button, .portfolio-item, 
+.artwork-item, .art-category-button, .adventure-link, .social-link, .polaroid,
+.close-button, .track-icon, nav button, .logo, .logo-image, .design-item {
+  cursor: url('https://res.cloudinary.com/dytt6x7n7/image/upload/v1743976056/cursor_finalFinal_vlosfl.png') 0 0, auto !important;
+}
+
+/* Override active/hover states too */
+*:active, *:hover, button:active, button:hover, a:active, a:hover {
+  cursor: url('https://res.cloudinary.com/dytt6x7n7/image/upload/v1743976056/cursor_finalFinal_vlosfl.png') 0 0, auto !important;
 }
 
 .app {
@@ -280,12 +293,13 @@ p {
 
 .design-item-content {
   padding: 1rem;
+  padding-top: 0rem;
 }
 
 .design-item h3 {
   font-family: 'Times New Roman Condensed', serif;
   color: var(--primary);
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-bottom: 0.5rem;
 }
 
@@ -940,8 +954,8 @@ footer {
 }
 
 .art-gallery-description {
+  /* width: 100%; */
   margin-bottom: 2.5rem;
-  max-width: 800px;
 }
 
 /* Main Art Gallery Grid */

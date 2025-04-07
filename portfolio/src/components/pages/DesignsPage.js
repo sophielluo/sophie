@@ -1,46 +1,86 @@
 import React from 'react';
+import { AdvancedImage } from '@cloudinary/react';
+import cld from '../../utils/cloudinary'; // Make sure this path is correct
 
 const Designs = () => {
   const designs = [
     {
       id: 1,
-      title: "Website Redesign",
-      description: "Complete overhaul of an e-commerce platform focusing on improved user experience and conversion rates.",
-      tags: ["Web Design", "UI/UX", "E-commerce"]
+      title: "MindLink",
+      description: "A social app that connects users through shared moods, thoughts, and location-based interactions in a supportive digital community.",
+      tags: ["Mobile App", "UI/UX", "Social Platform", "Emotional Wellness"],
+      imageId: "mindlink_cover_pfliw3.png"
     },
     {
       id: 2,
-      title: "Mobile App Interface",
-      description: "Design system and UI components for a fitness tracking application.",
-      tags: ["Mobile", "App Design", "UI Components"]
+      title: "GigSpace",
+      description: (
+        <>
+          Singapore's #1 gig marketplace that connect freelancers and event planners. Discover a world of talents and opportunities {" "}
+          <a 
+            href="https://www.gigspace.sg/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ textDecoration: 'underline' }}
+          >
+            here
+          </a>!
+        </>
+      ),
+      tags: ["Web", "UI/UX", "Branding", "Logo Design"],
+      imageId: "gigspace_cover2_tpbico.png"
     },
     {
       id: 3,
-      title: "Brand Identity",
-      description: "Complete brand package including logo, color palette, typography, and brand guidelines.",
-      tags: ["Branding", "Logo Design", "Guidelines"]
+      title: "RallyHub",
+      description: (
+        <>
+          A platform for tennis / pickle ball lovers to aasily discover and book courts across Ontario at their convenience. You can find the prototype for this project on my {" "}
+          <a 
+            href="https://github.com/sophielluo/rallyhub" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ textDecoration: 'underline' }}
+          >
+            GitHub
+          </a> as well!
+        </>
+      ),
+      tags: ["Web", "UI/UX", "Branding", "Logo Design", "Development"],
+      imageId: "rallyhub_cover_lo13gf.png"
     },
     {
       id: 4,
-      title: "Dashboard UI",
-      description: "Analytics dashboard design with data visualization components and user-friendly controls.",
-      tags: ["Dashboard", "Data Viz", "Web App"]
+      title: "LocalJobs",
+      description: "As the name suggests, LocalJobs is a platform for job seekers to find jobs and employers to discover talents. There is also an admin dashboard for various miscellaneous tasks.",
+      tags: ["Dashboard", "Web", "Mobile", "Wireframes"],
+      imageId: "localjobs_cover_elab8r.png"
     }
   ];
+
+    // Function to get Cloudinary image
+    const getCloudinaryImage = (imageId) => {
+      const image = cld.image(imageId);
+      return image;
+    };
 
   return (
     <section className="designs-section">
       <h2>Design Work</h2>
-      <p>A collection of my recent design projects spanning web, mobile, and branding.</p>
+      <p>After diving into Figma last May, I discovered a new dimension for my creativity. These projects represent my design evolution over the past two years—where functionality meets aesthetics. On a side note, I noticed how I favour the color combo blue & yellow while collating these projects... Anyhow, welcome to where my art and tech worlds collide!</p>
       <div className="design-grid">
         {designs.map(design => (
           <div key={design.id} className="design-item">
             <div className="design-item-image">
-              <div className="image-placeholder"></div>
+            <AdvancedImage
+              cldImg={getCloudinaryImage(design.imageId)}
+              alt={designs.title}
+              className="artwork-image"
+            />
             </div>
             <div className="design-item-content">
               <h3>{design.title}</h3>
-              <p>{design.description}</p>
+              <p>{typeof design.description === 'string' ? design.description : design.description}</p>
               <div className="design-tags">
                 {design.tags.map((tag, index) => (
                   <span key={index} className="design-tag">{tag}</span>

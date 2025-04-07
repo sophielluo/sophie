@@ -58,6 +58,7 @@ const Experiences = () => {
     techjam2: 'hackathons/pqeuwsptxe8dmg6m2zda.jpg',
     techjam3: 'hackathons/uqvcfjclbqxxlezlag0x.jpg',
     techjam4: 'techjam-5_xlwiby.mp4', // Video
+    techjam5: 'tiktok_techjam_wawqa3.png',
     hackhcmc1: 'hackathons/fmqvl6inwahxuom7sga3.jpg',
     hackhcmc2: 'hackathons/s5lwrn0uksccc8rabtle.jpg',
     hackhcmc3: 'hackathons/tghovxmgdxqyodaj9svq.jpg',
@@ -137,8 +138,8 @@ const Experiences = () => {
       companyLogo: orgLogos.techjam,
       workMedia: [
         { type: 'image', src: workMedia.techjam1 },
-        { type: 'image', src: workMedia.techjam2 },
-        { type: 'image', src: workMedia.techjam3 },
+        // { type: 'image', src: workMedia.techjam3 },
+        { type: 'image', src: workMedia.techjam5 },
         { type: 'video', src: workMedia.techjam4 },
       ],
       skills: ["react","javascript","figma","yolov8","opencv"]
