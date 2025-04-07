@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AdvancedImage } from '@cloudinary/react';
 import cld from '../../utils/cloudinary'; // Make sure this path is correct
 import arrow from '../../images/about/arrow.png'; 
@@ -6,6 +7,7 @@ import arrow from '../../images/about/arrow.png';
 
 const About = ({ setCurrentPage }) => {
   const clickSoundURL = "https://res.cloudinary.com/dytt6x7n7/video/upload/v1743975038/mouse_click_light_shortened_qp9omx.mp4";
+  
   // Function to get Cloudinary image with resize transformation
   const getCloudinaryImage = (imageId, width = 400, height = 300) => {
     const image = cld.image(imageId);
@@ -55,6 +57,7 @@ const About = ({ setCurrentPage }) => {
     });
 
     // Then change the page
+    // setCurrentPage(page);
     setCurrentPage(page);
   };
 

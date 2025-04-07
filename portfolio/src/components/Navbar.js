@@ -1,5 +1,6 @@
 // src/components/Navbar.js
 import React, { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../images/logo.png';
 
 const Navbar = ({ currentPage, setCurrentPage }) => {
