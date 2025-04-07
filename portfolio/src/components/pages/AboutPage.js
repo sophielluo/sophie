@@ -32,7 +32,7 @@ const About = ({ setCurrentPage }) => {
   const coverImages = {
     cover1: 'about/ejtkvp33o7aat2wecjrz.png',
     cover2: 'about/e6hfzybnoxz055m6ylxw.png',
-    cover3: 'about/ejtkvp33o7aat2wecjrz.png',
+    cover3: 'about/rvhhveqgglatkvn1xcv8.png',
   };
 
   const polaroidImages = [
@@ -139,7 +139,7 @@ const About = ({ setCurrentPage }) => {
       <div className="about-container">
         <div className="about-image">
           <AdvancedImage
-            cldImg={getCloudinaryImage(coverImages.cover3, 500, 600)}
+            cldImg={getCloudinaryImage(coverImages.cover2, 500, 600)}
             alt="Me"
             className="about-me-picture"
           />
@@ -217,7 +217,7 @@ const About = ({ setCurrentPage }) => {
         </div>
         <div className="about-image">
           <AdvancedImage
-            cldImg={getCloudinaryImage(coverImages.cover2, 500, 600)}
+            cldImg={getCloudinaryImage(coverImages.cover3, 500, 600)}
             alt="Me"
             className="about-me-picture"
           />
