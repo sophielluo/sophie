@@ -30,7 +30,7 @@ const Footer = () => {
   }
 
   return (
-    <footer>
+    <footer className='footer-container'>
       <h3 className='footer-content'>Let's Connect</h3>
       <div className="social-links">
         {/* Linkedin */}

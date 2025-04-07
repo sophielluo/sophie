@@ -27,35 +27,6 @@ function AppContent() {
   const setCurrentPage = (page) => {
     navigate(`/${page === 'about' ? '' : page}`);
   };
-  
-  // const renderPage = () => {
-  //   switch(currentPage) {
-  //     case 'about':
-  //       return <About setCurrentPage={setCurrentPage} />;
-  //     case 'experiences':
-  //       return <Experiences />;
-  //     case 'designs':
-  //       return <Designs />;
-  //     case 'artworks':
-  //       return <Artworks />;
-  //     case 'photography':
-  //       return <Photography />;
-  //     case 'music':
-  //       return <Music />;
-  //     default:
-  //       return <About setCurrentPage={setCurrentPage} />;
-  //   }
-  // };
-
-  // return (
-  //   <div className="app">
-  //     <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
-  //     <main>
-  //       {renderPage()}
-  //     </main>
-  //     <Footer />
-  //   </div>
-  // );
 
   return (
     <div className="app">
