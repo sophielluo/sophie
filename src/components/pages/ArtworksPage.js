@@ -15,7 +15,7 @@ const Artworks = () => {
     {
       id: 1,
       title: "Playful Encounter",
-      medium: "Acrylic on Canvas",
+      medium: "Acrylic on Paper",
       year: "2010",
       imageId: 'artworks-small/umg8u59zwf4aiwehrxny.jpg',
       categories: ["Decalcomania"]
@@ -23,7 +23,7 @@ const Artworks = () => {
     {
       id: 2,
       title: "Fragmented Portrait",
-      medium: "Oil on Canvas",
+      medium: "Acrylic on Paper",
       year: "2011",
       imageId: 'artworks-small/lfiu7mzuym6prsb8xwyc.jpg',
       categories: ["Cubism"]
@@ -31,7 +31,7 @@ const Artworks = () => {
     {
       id: 3,
       title: "Pastoral Reflection",
-      medium: "Mixed Media",
+      medium: "Acrylic on Paper",
       year: "2012",
       imageId: 'artwork-15_cwhpl1.png',
       categories: ["Cubism"]
@@ -39,7 +39,7 @@ const Artworks = () => {
     {
       id: 4,
       title: "Dancing Spirits",
-      medium: "Acrylic on Paper",
+      medium: "Crayons on Paper",
       year: "2010",
       imageId: 'artwork-18_bodmue.png',
       categories: ["Pastel"]
@@ -47,7 +47,7 @@ const Artworks = () => {
     {
       id: 5,
       title: "Energetic Burst",
-      medium: "Watercolor",
+      medium: "Acrylic & Collage",
       year: "2012",
       imageId: 'artwork-14_zjasjd.png',
       categories: ["Collage"]
@@ -55,7 +55,7 @@ const Artworks = () => {
     {
       id: 6,
       title: "Rustic Bloom",
-      medium: "Collage",
+      medium: "Pastel & Collage",
       year: "2011",
       imageId: 'artworks-small/q9gxfwomjv2qaj5pr8gc.jpg',
       categories: ["Pastel", "Collage"]
@@ -87,8 +87,8 @@ const Artworks = () => {
     {
       id: 10,
       title: "My Dad",
-      medium: "Ink and Watercolor",
-      year: "2012",
+      medium: "Ink on Rice Paper",
+      year: "2009",
       imageId: 'artworks-small/cezm4lfymmpuinrqyhwe.png',
       categories: ["Traditional Chinese"]
     },
@@ -103,7 +103,7 @@ const Artworks = () => {
     {
       id: 12,
       title: "Childlike Whimsy",
-      medium: "Mixed Media",
+      medium: "Acrylic on Canvas",
       year: "2011",
       imageId: 'artwork-16_yrsvzj.png',
       categories: ["Cubism"]
@@ -119,8 +119,8 @@ const Artworks = () => {
     {
       id: 14,
       title: "Whimsical Garden",
-      medium: "Paper and Acrylic",
-      year: "2012",
+      medium: "Watercolor & Collage",
+      year: "2008",
       imageId: 'artworks-small/yjvqkcbqmxsksqltzvyh.png',
       categories: ["Collage"]
     },
@@ -143,8 +143,8 @@ const Artworks = () => {
     {
       id: 17,
       title: "Aged Expression",
-      medium: "Ink and Watercolor",
-      year: "2010",
+      medium: "Ink on Rice Paper",
+      year: "2009",
       imageId: 'artworks-small/fjr60jmgluuavbxnkzwj.png',
       categories: ["Traditional Chinese"]
     },
@@ -152,7 +152,7 @@ const Artworks = () => {
       id: 18,
       title: "Metallic Elegance",
       medium: "Pastel and Paper",
-      year: "2011",
+      year: "2010",
       imageId: 'artworks-small/ddg9gd8q1maxokbjmduv.jpg',
       categories: ["Pastel", "Collage"]
     },

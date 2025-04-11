@@ -69,7 +69,7 @@ const Experiences = () => {
     {
       id: 1,
       period: "Jan 2025 - Present, Toronto",
-      role: "Project Manager",
+      role: "Business Technology Analyst",
       company: "Mavennet",
       description: (
         <>
