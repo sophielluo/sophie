@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import FullScreenGallery from '@/components/FullScreenGallery';
+import FullScreenGallery from '@components/FullScreenGallery';
 import { AdvancedImage } from '@cloudinary/react';
 import { fill } from '@cloudinary/url-gen/actions/resize';
-import cld from '@/utils/cloudinary';
+import cld from '@utils/cloudinary';
 
 const Artworks = () => {
   const [activeCategory, setActiveCategory] = useState('All');

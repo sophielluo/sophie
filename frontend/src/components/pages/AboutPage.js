@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { AdvancedImage } from '@cloudinary/react';
-import cld from '@/utils/cloudinary';
-import arrow from '@/images/about/arrow.png';
+import cld from '@utils/cloudinary';
+import arrow from '@images/about/arrow.png';
 
 
 const About = ({ setCurrentPage }) => {

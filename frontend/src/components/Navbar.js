@@ -1,7 +1,7 @@
 // src/components/Navbar.js
 import React, { useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '@/images/logo.png';
+import logo from '@images/logo.png';
 
 const Navbar = ({ currentPage, setCurrentPage }) => {
   const clickSoundURL = "https://res.cloudinary.com/dytt6x7n7/video/upload/v1743974449/mouse_click_shortened_jrfnxg.mp4";

@@ -1,6 +1,6 @@
 import React from 'react';
 import { AdvancedImage } from '@cloudinary/react';
-import cld from '@/utils/cloudinary';
+import cld from '@utils/cloudinary';
 
 const Designs = () => {
   const clickSoundURL = "https://res.cloudinary.com/dytt6x7n7/video/upload/v1743975038/mouse_click_light_shortened_qp9omx.mp4";

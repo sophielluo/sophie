@@ -3,14 +3,13 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 
-import About from '@/pages/AboutPage';
-import Experiences from '@/pages/ExperiencesPage';
-import Designs from '@/pages/DesignsPage';
-import Artworks from '@/pages/ArtworksPage';
-// import Photography from '@/pages/PhotographyPage';
-import Music from '@/pages/MusicPage';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import About from '@pages/AboutPage';
+import Experiences from '@pages/ExperiencesPage';
+import Designs from '@pages/DesignsPage';
+import Artworks from '@pages/ArtworksPage';
+import Music from '@pages/MusicPage';
+import Navbar from '@components/Navbar';
+import Footer from '@components/Footer';
 
 function AppContent() {
   return (
