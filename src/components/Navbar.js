@@ -1,17 +1,16 @@
 // src/components/Navbar.js
 import React, { useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../images/logo.png';
+import { NavLink } from 'react-router-dom';
+import logo from '@/images/logo.png';
 
 const Navbar = ({ currentPage, setCurrentPage }) => {
   const clickSoundURL = "https://res.cloudinary.com/dytt6x7n7/video/upload/v1743974449/mouse_click_shortened_jrfnxg.mp4";
   const navItems = [
-    { id: 'about', label: 'about me' },
-    { id: 'experiences', label: 'experiences' },
-    { id: 'designs', label: 'designs' },
-    { id: 'artworks', label: 'gallery' },
-    // { id: 'photography', label: 'photography' },
-    { id: 'music', label: 'music' }
+    { id: 'about', label: 'about me', path: '/' },
+    { id: 'experiences', label: 'experiences', path: '/experiences' },
+    { id: 'designs', label: 'designs', path: '/designs' },
+    { id: 'artworks', label: 'gallery', path: '/artworks' },
+    { id: 'music', label: 'music', path: '/music' }
   ];
 
   // Create a new Audio instance for each click
@@ -36,10 +35,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
   };
 
   const handleClick = (id) => {
-    // Play the click sound first
     playClickSound();
-    
-    // Then navigate to the selected page
     setCurrentPage(id);
   };
 
@@ -53,18 +49,18 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
           onClick={() => setCurrentPage('about')}
           style={{ cursor: 'pointer' }}
         />
-        <div className="star-decoration"></div>
       </div>
       <nav>
         <ul>
           {navItems.map(item => (
             <li key={item.id}>
-              <button
-                className={currentPage === item.id ? 'active' : ''}
-                onClick={() => handleClick(item.id)}
+              <NavLink
+                to={item.path}
+                className={({ isActive }) => isActive ? 'active' : ''}
+                onClick={playClickSound}
               >
                 {item.label}
-              </button>
+              </NavLink>
             </li>
           ))}
         </ul>

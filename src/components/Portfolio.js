@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-import About from './pages/AboutPage';
-import Experiences from './pages/ExperiencesPage';
-import Designs from './pages/DesignsPage';
-import Artworks from './pages/ArtworksPage';
-import Photography from './pages/PhotographyPage';
-import Music from './pages/MusicPage';
+import About from '@/pages/AboutPage';
+import Experiences from '@/pages/ExperiencesPage';
+import Designs from '@/pages/DesignsPage';
+import Artworks from '@/pages/ArtworksPage';
+import Photography from '@/pages/PhotographyPage';
+import Music from '@/pages/MusicPage';
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('about');

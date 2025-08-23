@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import cld from '../../utils/cloudinary';
+import cld from '@/utils/cloudinary';
 
 const MusicPage = () => {
   const [tracks, setTracks] = useState([]);

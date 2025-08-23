@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { AdvancedImage } from '@cloudinary/react';
-import cld from '../../utils/cloudinary';
+import cld from '@/utils/cloudinary';
 
 // Import only necessary non-Cloudinary assets
-import yolov8Logo from '../../images/skills/yolov8-logo.svg';  // SVG might be kept as local import
+import yolov8Logo from '@/images/skills/yolov8-logo.svg';
 
 const Experiences = () => {
   // Function to get Cloudinary image with transformations
