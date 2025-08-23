@@ -133,17 +133,17 @@ async def send_email(form: ContactForm):
     
     # Email body
     body = f"""
-        New contact form submission:
+    New contact form submission:
 
-        Name: {form.name}
-        Email: {form.email}
-        Subject: {form.subject}
+    Name: {form.name}
+    Email: {form.email}
+    Subject: {form.subject}
 
-        Message:
-        {form.message}
+    Message:
+    {form.message}
 
-        ---
-        Sent at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+    ---
+    Sent at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
     """
     
     msg.attach(MIMEText(body, 'plain')) # add the actual message content

@@ -13,13 +13,35 @@ const Designs = () => {
   const designs = [
     {
       id: 1,
+      title: "OpenMentor",
+      description: (
+        <>
+          An {" "}
+          <a 
+            href="https://www.openmentor.ai/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ textDecoration: 'underline' }}
+            onClick={(e) => {
+              handleLinkClick();
+            }}
+          >
+            open community platform
+          </a> for students to connect with mentors, fostering a supportive and collaborative environment for learning and growth.
+        </>
+      ),
+      tags: ["Web", "UI/UX", "Marketing", "Branding"],
+      imageId: "openmentor_omahgm"
+    },
+    {
+      id: 2,
       title: "MindLink",
       description: "A social app that connects users through shared moods, thoughts, and location-based interactions in a supportive digital community.",
       tags: ["Mobile App", "UI/UX", "Social Platform", "Emotional Wellness"],
       imageId: "mindlink_cover_pfliw3.png"
     },
     {
-      id: 2,
+      id: 3,
       title: "GigSpace",
       description: (
         <>
@@ -41,7 +63,7 @@ const Designs = () => {
       imageId: "gigspace_cover2_tpbico.png"
     },
     {
-      id: 3,
+      id: 4,
       title: "RallyHub",
       description: (
         <>
@@ -63,7 +85,7 @@ const Designs = () => {
       imageId: "rallyhub_cover_lo13gf.png"
     },
     {
-      id: 4,
+      id: 5,
       title: "LocalJobs",
       description: "As the name suggests, LocalJobs is a platform for job seekers to find jobs and employers to discover talents. There is also an admin dashboard for various miscellaneous tasks.",
       tags: ["Dashboard", "Web", "Mobile", "Wireframes"],

@@ -42,7 +42,7 @@ const Experiences = () => {
   const workMedia = {
     mavennet1: 'work/wd4he2wbxcoc9vbdemnt.jpg',
     mavennet2: 'work/lwe2qqsrlbxdszxotrtr.jpg',
-    mavennet3: 'work/hscgw6ksmlddvvtlilgb.png',
+    mavennet3: 'Screenshot_2025-07-29_at_2.42.20_PM_yqqj0q.png',
     shopback1: 'work/zvqfkipaokr0bxawe65n.png',
     mystorage1: 'work/mlyjguciqhnuzgeg5ahr.jpg',
     mystorage2: 'work/pacgn1ktrjfjvrrcmqlk.jpg',
