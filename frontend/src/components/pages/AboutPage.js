@@ -2,11 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import { AdvancedImage } from '@cloudinary/react';
 import cld from '@utils/cloudinary';
 import arrow from '@images/about/arrow.png';
+import { useNavigate } from 'react-router-dom'; 
+import useSound from '@hooks/useSound';
 
 
-const About = ({ setCurrentPage }) => {
-  const clickSoundURL = "https://res.cloudinary.com/dytt6x7n7/video/upload/v1743975038/mouse_click_light_shortened_qp9omx.mp4";
-  const printingSoundURL = "https://res.cloudinary.com/dytt6x7n7/video/upload/v1744060842/polaroid_printing_blz53b.mov";
+const About = () => {
+  const navigate = useNavigate();
+  const { playClickSound, playPrintSound } = useSound();
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8000';
 
   // State to track which polaroids have been "developed"
   const [developedPolaroids, setDevelopedPolaroids] = useState({});
@@ -44,21 +47,28 @@ const About = ({ setCurrentPage }) => {
     plays: 200
   };
 
-  // Sample banner artworks with Cloudinary image IDs
-  const travelImages = [
-    { id: 1, title: "Travel 1", imageId: 'travel/orwkj4r9j4okifsaddqr.png' },
-    { id: 2, title: "Travel 2", imageId: 'travel/bcwy5yfwnswul3xvob16.jpg' },
-    { id: 3, title: "Travel 3", imageId: 'travel/vx4uy5av0dfdgdg3uhau.jpg' },
-    { id: 4, title: "Travel 4", imageId: 'travel/zzg2biyz4zmionaua32c.png' },
-    { id: 5, title: "Travel 5", imageId: 'travel/dbeneuxi3kof4uvphieo.jpg' },
-    { id: 6, title: "Travel 6", imageId: 'travel/bcwy5yfwnswul3xvob16.jpg' },
-    { id: 7, title: "Travel 7", imageId: 'travel/gabhv7km5ms4j9ggrals.jpg' },
-    { id: 8, title: "Travel 8", imageId: 'travel/nrkaufveejpjy3rawnum.png' },
-    { id: 9, title: "Travel 9", imageId: 'travel/prrgelvdrwgmabnbirfl.png' },
-    { id: 10, title: "Travel 10", imageId: 'travel/cbaq8jjlkt0i61hlz5tl.png' },
-    { id: 11, title: "Travel 11", imageId: 'travel/euaj7r6l3zph8ddj7kzh.jpg' },
-    { id: 12, title: "Travel 12", imageId: 'travel/d9gkesqml36ya4k6wkwx.jpg' },
-  ];
+  // banner images with Cloudinary image IDs
+  const [travelImages, setTravelImages] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchTravelImages = async () => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/images/folder/travel`);
+        const data = await response.json();
+        
+        if (data.success) {
+          setTravelImages(data.images);
+        }
+      } catch (error) {
+        console.error('Failed to fetch travel images:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    fetchTravelImages();
+  }, []);
 
   // Define Cloudinary IDs for cover images and polaroids
   const coverImages = {
@@ -138,8 +148,7 @@ const About = ({ setCurrentPage }) => {
     });
 
     // Then change the page
-    // setCurrentPage(page);
-    setCurrentPage(page);
+    navigate(`/${page}`);
   };
 
   // Navigation functions
@@ -147,48 +156,6 @@ const About = ({ setCurrentPage }) => {
   const goToDesign = () => navigateAndScrollToTop('designs');
   const goToMusic = () => navigateAndScrollToTop('music');
   const goToExperience = () => navigateAndScrollToTop('experiences');
-
-  // Create a new Audio instance for each click
-  const playClickSound = () => {
-    try {
-      // Create a fresh audio instance each time
-      const sound = new Audio(clickSoundURL);
-      sound.volume = 0.3; // Set volume (0.0 to 1.0)
-
-      // Add an event listener to remove the element after it plays
-      sound.addEventListener('ended', () => {
-        sound.remove(); // Clean up after playback
-      });
-
-      // Play the sound with error handling
-      sound.play().catch(err => {
-        console.warn('Could not play sound:', err);
-      });
-    } catch (err) {
-      console.error('Error creating audio:', err);
-    }
-  };
-
-  // Create a new Audio instance for polaroid printing
-  const playPrintSound = () => {
-    try {
-      // Create a fresh audio instance each time
-      const sound = new Audio(printingSoundURL);
-      sound.volume = 0.3; // Set volume (0.0 to 1.0)
-
-      // Add an event listener to remove the element after it plays
-      sound.addEventListener('ended', () => {
-        sound.remove(); // Clean up after playback
-      });
-
-      // Play the sound with error handling
-      sound.play().catch(err => {
-        console.warn('Could not play sound:', err);
-      });
-    } catch (err) {
-      console.error('Error creating audio:', err);
-    }
-  };
 
   return (
     <section className="about-section">

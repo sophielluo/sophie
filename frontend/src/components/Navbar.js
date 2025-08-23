@@ -10,7 +10,8 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
     { id: 'experiences', label: 'experiences', path: '/experiences' },
     { id: 'designs', label: 'designs', path: '/designs' },
     { id: 'artworks', label: 'gallery', path: '/artworks' },
-    { id: 'music', label: 'music', path: '/music' }
+    { id: 'music', label: 'music', path: '/music' },
+    { id: 'contact', label: 'contact', path: '/contact' }
   ];
 
   // Create a new Audio instance for each click

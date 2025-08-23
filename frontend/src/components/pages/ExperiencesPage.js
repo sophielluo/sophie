@@ -69,7 +69,7 @@ const Experiences = () => {
     {
       id: 1,
       period: "Jan 2025 - Present, Toronto",
-      role: "Project Manager",
+      role: "Business Technology Analyst",
       company: "Mavennet",
       description: (
         <>
@@ -104,14 +104,14 @@ const Experiences = () => {
       ),
       companyLogo: orgLogos.shopback,
       workMedia: [
-        { type: 'image', src: workMedia.shopback1 },
+        // { type: 'image', src: workMedia.shopback1 },
       ],
       skills: ["javascript", "jira"]
     },
     {
       id: 3,
       period: "May - Aug 2024, Vietnam",
-      role: "UI/UX Designer",
+      role: "Software Engineer",
       company: "MyStorage",
       description: (
         <>

@@ -8,6 +8,7 @@ import Experiences from '@pages/ExperiencesPage';
 import Designs from '@pages/DesignsPage';
 import Artworks from '@pages/ArtworksPage';
 import Music from '@pages/MusicPage';
+import Contact from '@pages/ContactPage';
 import Navbar from '@components/Navbar';
 import Footer from '@components/Footer';
 
@@ -23,6 +24,7 @@ function AppContent() {
           <Route path="/designs" element={<Designs />} />
           <Route path="/artworks" element={<Artworks />} />
           <Route path="/music" element={<Music />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
       <Footer />

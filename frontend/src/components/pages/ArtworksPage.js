@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import FullScreenGallery from '@components/FullScreenGallery';
 import { AdvancedImage } from '@cloudinary/react';
-import { fill } from '@cloudinary/url-gen/actions/resize';
 import cld from '@utils/cloudinary';
+import useSound from '@hooks/useSound';
 
 const Artworks = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [isFullscreenOpen, setIsFullscreenOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const clickSoundURL = "https://res.cloudinary.com/dytt6x7n7/video/upload/v1743975038/mouse_click_light_shortened_qp9omx.mp4";
+  const { playClickSound } = useSound();
 
   // Artwork metadata
   const artworks = [
@@ -223,26 +223,6 @@ const Artworks = () => {
     // image.resize(fill().width(3000).height(4000));
     // console.log('Image URL:', image.toURL()); // Add this for debugging
     return image;
-  };
-
-  const playClickSound = () => {
-    try {
-      // Create a fresh audio instance each time
-      const sound = new Audio(clickSoundURL);
-      sound.volume = 0.3; // Set volume (0.0 to 1.0)
-
-      // Add an event listener to remove the element after it plays
-      sound.addEventListener('ended', () => {
-        sound.remove(); // Clean up after playback
-      });
-
-      // Play the sound with error handling
-      sound.play().catch(err => {
-        console.warn('Could not play sound:', err);
-      });
-    } catch (err) {
-      console.error('Error creating audio:', err);
-    }
   };
 
   const handleCategoryChange = (category) => {
