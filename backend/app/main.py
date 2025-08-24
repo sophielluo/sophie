@@ -20,7 +20,7 @@ app = FastAPI(title="Portfolio API", version="1.0.0")
 # CORS for frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://sophielluo.github.io"],
+    allow_origins=["http://localhost:3000", "https://sophieluo.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
