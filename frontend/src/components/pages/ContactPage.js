@@ -23,7 +23,7 @@ const ContactPage = () => {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('http://localhost:8000/api/contact', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
