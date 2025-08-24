@@ -9,7 +9,6 @@ import useSound from '@hooks/useSound';
 const About = () => {
   const navigate = useNavigate();
   const { playClickSound, playPrintSound } = useSound();
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8000';
 
   // State to track which polaroids have been "developed"
   const [developedPolaroids, setDevelopedPolaroids] = useState({});
@@ -54,7 +53,7 @@ const About = () => {
   useEffect(() => {
     const fetchTravelImages = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}}/api/images/folder/travel`);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/images/folder/travel`);
         const data = await response.json();
         
         if (data.success) {
