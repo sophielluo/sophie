@@ -54,7 +54,7 @@ const About = () => {
   useEffect(() => {
     const fetchTravelImages = async () => {
       try {
-        const response = await fetch(`${API_BASE_URL}/api/images/folder/travel`);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}}/api/images/folder/travel`);
         const data = await response.json();
         
         if (data.success) {
