@@ -68,13 +68,13 @@ const Experiences = () => {
   const experiences = [
     {
       id: 1,
-      period: "Jan 2025 - Present, Toronto",
+      period: "Jan 2025 - Dec 2025, Toronto",
       role: "Business Technology Analyst",
       company: "Mavennet",
       description: (
         <>
-          Currently at <em>Mavennet</em>, a Toronto technology company specializing in <em>digital transformation</em> and <em>venture creation</em>, 
-          I am taking up the role as a <strong>project manager</strong> in one of its latest consulting projects, 
+          At<em>Mavennet</em>, a Toronto technology company specializing in <em>digital transformation</em> and <em>venture creation</em>, 
+          I took up the role as a <strong>project manager</strong> in one of its latest consulting projects, 
           where I have learnt to effectively balance <strong>strategic planning</strong> with <strong>agile execution</strong>. 
           Additionally, I have developed <strong>strong communication skills</strong> to foster <strong>cross-functional collaboration</strong> and 
           gained <strong>autonomy</strong> in managing various tasks.

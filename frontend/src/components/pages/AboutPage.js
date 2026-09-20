@@ -1,10 +1,27 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { AdvancedImage } from '@cloudinary/react';
 import cld from '@utils/cloudinary';
+import API_BASE_URL from '@utils/api';
 import arrow from '@images/about/arrow.png';
 import { useNavigate } from 'react-router-dom'; 
 import useSound from '@hooks/useSound';
 
+
+// Baseline banner images, used until the backend responds and whenever it is
+// unreachable, so the floating gallery never renders empty.
+const FALLBACK_TRAVEL_IMAGES = [
+  { id: 1, title: "Travel 1", imageId: 'travel/orwkj4r9j4okifsaddqr.png' },
+  { id: 2, title: "Travel 2", imageId: 'travel/bcwy5yfwnswul3xvob16.jpg' },
+  { id: 3, title: "Travel 3", imageId: 'travel/vx4uy5av0dfdgdg3uhau.jpg' },
+  { id: 4, title: "Travel 4", imageId: 'travel/zzg2biyz4zmionaua32c.png' },
+  { id: 5, title: "Travel 5", imageId: 'travel/dbeneuxi3kof4uvphieo.jpg' },
+  { id: 6, title: "Travel 6", imageId: 'travel/gabhv7km5ms4j9ggrals.jpg' },
+  { id: 7, title: "Travel 7", imageId: 'travel/nrkaufveejpjy3rawnum.png' },
+  { id: 8, title: "Travel 8", imageId: 'travel/prrgelvdrwgmabnbirfl.png' },
+  { id: 9, title: "Travel 9", imageId: 'travel/cbaq8jjlkt0i61hlz5tl.png' },
+  { id: 10, title: "Travel 10", imageId: 'travel/euaj7r6l3zph8ddj7kzh.jpg' },
+  { id: 11, title: "Travel 11", imageId: 'travel/d9gkesqml36ya4k6wkwx.jpg' },
+];
 
 const About = () => {
   const navigate = useNavigate();
@@ -47,25 +64,28 @@ const About = () => {
   };
 
   // banner images with Cloudinary image IDs
-  const [travelImages, setTravelImages] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [travelImages, setTravelImages] = useState(FALLBACK_TRAVEL_IMAGES);
 
   useEffect(() => {
     const fetchTravelImages = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/images/folder/travel`);
+        const response = await fetch(`${API_BASE_URL}/api/images/folder/travel`);
+
+        if (!response.ok) {
+          throw new Error(`Request failed with status ${response.status}`);
+        }
+
         const data = await response.json();
-        
-        if (data.success) {
+
+        if (data.success && data.images && data.images.length > 0) {
           setTravelImages(data.images);
         }
       } catch (error) {
-        console.error('Failed to fetch travel images:', error);
-      } finally {
-        setLoading(false);
+        // Leave the fallback set in place so the banner keeps scrolling.
+        console.error('Failed to fetch travel images, using fallback set:', error);
       }
     };
-  
+
     fetchTravelImages();
   }, []);
 
